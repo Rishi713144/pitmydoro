@@ -1,3 +1,4 @@
+'use client';
 import { useFirebase } from '@/hooks/useFirebase';
 import { useEffect } from 'react';
 import { Collections } from '@/utils/constants/FirebasePaths';
