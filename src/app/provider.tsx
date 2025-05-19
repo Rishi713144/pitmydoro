@@ -5,8 +5,11 @@ import { ThemeProvider } from 'next-themes';
 import React, { useEffect, useMemo, useState } from 'react';
 import useSessionStore from '@/stores/Session.store';
 import usePomodoroStore from '@/stores/Pomodoro.store';
+import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
+import { app } from '@/firebase/config';
+import { environment } from '@/environments/environment.dev';
 
-export default function RootLayout(props: { children: React.ReactNode }) {
+export default function Provider(props: { children: React.ReactNode }) {
   const currentScuderia = usePomodoroStore((state) => state.currentScuderia);
   const sessionStatus = useSessionStore((state) => state.status);
   const [isClient, setIsClient] = useState(false);
@@ -98,6 +101,15 @@ export default function RootLayout(props: { children: React.ReactNode }) {
   }, [currentScuderia, sessionStatus]);
 
   const system = createSystem(defaultConfig, theme);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      initializeAppCheck(app, {
+        provider: new ReCaptchaV3Provider(environment.recaptchaSiteKey || ''),
+        isTokenAutoRefreshEnabled: true,
+      });
+    }
+  }, []);
 
   useEffect(() => {
     setIsClient(true);
