@@ -1,24 +1,21 @@
-import { initializeApp } from 'firebase/app';
+import { getApp, getApps, initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { getStorage } from 'firebase/storage';
 import { getAuth } from 'firebase/auth';
 import { environment } from '@/environments/environment.dev';
 
-const app = initializeApp(environment.firebase);
+const app = !getApps().length ? initializeApp(environment.firebase) : getApp();
 let AppCheckInstance = null;
 
 if (typeof window !== 'undefined' && !AppCheckInstance) {
-  import('firebase/app-check').then(async (module) => {
-    const captchaProvider = environment.recaptchaSiteKey || '';
-    AppCheckInstance = module.initializeAppCheck(app, {
-      provider: new module.ReCaptchaV3Provider(captchaProvider),
+  import('firebase/app-check').then(async (firebaseAppCheck) => {
+    const captachp = environment.recaptchaSiteKey as string;
+    AppCheckInstance = firebaseAppCheck.initializeAppCheck(app, {
+      provider: new firebaseAppCheck.ReCaptchaV3Provider(captachp),
       isTokenAutoRefreshEnabled: true,
     });
   });
 }
+const db = getFirestore();
+const auth = getAuth();
 
-const db = getFirestore(app);
-const auth = getAuth(app);
-const storage = getStorage(app);
-
-export { app, db, auth, storage };
+export { db, auth, app };
