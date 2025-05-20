@@ -4,7 +4,7 @@ import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
 import { getApps, initializeApp } from 'firebase/app';
 import { environment } from '@/environments/environment.dev';
 
-function AppCheckWrapper({ children }) {
+function AppCheckWrapper({ children }: any) {
   useEffect(() => {
     if (!getApps().length) {
       const app = initializeApp(environment.firebase);
