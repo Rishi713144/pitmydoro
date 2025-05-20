@@ -9,6 +9,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { Toaster } from 'react-hot-toast';
 import { BottomBanner } from '@/components/BottomBanner';
 import { Metadata } from 'next';
+import AppCheckWrapper from '@/app/AppCheckWrapper';
 
 export const metadata: Metadata = {
   title: 'Pit My Doro',
@@ -27,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Header />
                 <Toaster position='top-right' />
 
-                {children}
+                <AppCheckWrapper>{children}</AppCheckWrapper>
 
                 <BottomBanner />
                 <Footer />
