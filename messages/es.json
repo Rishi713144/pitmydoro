@@ -119,5 +119,34 @@
   "alerts": {
     "acceptText": "Aceptar",
     "cancelText": "Cancelar"
+  },
+  "404": {
+    "title": "Ups... la página que buscas no existe o fue movida.",
+    "goBack": "Regresar a la página principal"
+  },
+  "sections": {
+    "mainTitle": "Tu ritmo, tu carrera, tu tiempo",
+    "about": {
+      "title": "¿Qué es Pitmydoro?",
+      "description": "Pitmydoro es un <strong>temporizador de enfoque</strong> inspirado en la <strong>Fórmula 1</strong>, diseñado para acompañarte a lograr tus <strong>tareas y objetivos</strong>.<br></br><br></br>Funciona perfectamente en <strong>escritorio y móvil</strong>, y su propósito es ayudarte a <strong>mantener la concentración</strong> ya sea que estés <strong>estudiando, escribiendo, programando o planificando tu próxima meta</strong>.<br></br><br></br>Aprovecha el método <strong>Pomodoro</strong> en combinación con F1 para hacer del enfoque algo más <strong>dinámico y motivador.</strong>",
+      "title2": "¿Cómo funciona la técnica Pomodoro?",
+      "description2": "La <wiki>Técnica Pomodoro</wiki>, es una estrategia de gestión del tiempo que divide el trabajo en intervalos de alta concentración, típicamente de <strong>25 minutos</strong>, seguidas de pausas breves.<br></br><br></br>En <strong>Pitmydoro</strong>, cada tarea es parte de tu estrategia de carrera. Cada <strong>Pomodoro</strong> es una vuelta, y según la intensidad del trabajo, puedes elegir entre distintos \"neumáticos\": <strong>blandos</strong>, <strong>medios</strong>, <strong>duros</strong>, <strong>intermedios</strong> o de <strong>lluvia</strong>, adaptándote a las condiciones de tu jornada.<br></br><br></br>Puedes configurar la duración de cada neumático y elegir tu escudería favorita para personalizar tu entorno <small>(Esto lo puedes hacer desde el apartado de Configuraciones)</small>.<br></br><br></br>Las pausas cortas y largas son tus paradas en pits, esenciales para mantenerte en pista y seguir rindiendo al máximo.",
+      "title3": "¿Cómo empezar a usar la técnica Pomodoro?",
+      "list": {
+        "1": "Agrega las tareas que tengas pendientes.",
+        "2": "Asigna cuántos pomodoros crees que necesitará cada tarea.",
+        "3": "Puedes seleccionar una tarea en especifico para iniciar.",
+        "4": "Inicia el temporizador y concéntrate.",
+        "5": "Repite los intervalos, hasta completar 4 pomodoros (o los que hayas configurado).",
+        "6": "Cada que completes una sesión, toma un descanso corto.",
+        "7": "Al completar 4 pomodoros, toma una pausa más larga.",
+        "8": "Repite el proceso hasta completar todas tus tareas."
+      },
+      "nonF1": {
+        "title": "¿No eres fan de la F1 o no conoces ningún concepto?",
+        "description": "No te preocupes, puedes usar Pitmydoro sin necesidad de ser un fanático de la <strong>Fórmula 1</strong>. La aplicación está diseñada para adaptarse a tus necesidades y preferencias, <strong>sin importar tu afinidad por la F1.</strong>",
+        "description2": "Pero si quieres aprender, puedes consultar la <f1Blog>Guía básica</f1Blog> donde te explicamos algunos conceptos básicos."
+      }
+    }
   }
 }

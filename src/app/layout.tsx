@@ -2,9 +2,6 @@ import Provider from './provider';
 import React from 'react';
 import './globals.css';
 import { ColorModeProvider } from '@/components/ui/color-mode';
-import { MainContainer } from '@/components/MainContainer';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
 import { NextIntlClientProvider } from 'next-intl';
 import { Toaster } from 'react-hot-toast';
 import { BottomBanner } from '@/components/BottomBanner';
@@ -23,16 +20,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <NextIntlClientProvider>
           <Provider>
-            <ColorModeProvider>
-              <MainContainer>
-                <Header />
-                <Toaster position='top-right' />
-
-                <AppCheckWrapper>{children}</AppCheckWrapper>
-
-                <BottomBanner />
-                <Footer />
-              </MainContainer>
+            <ColorModeProvider enableSystem={false}>
+              <Toaster position='top-right' />
+              <AppCheckWrapper>{children}</AppCheckWrapper>
+              <BottomBanner />
             </ColorModeProvider>
           </Provider>
         </NextIntlClientProvider>

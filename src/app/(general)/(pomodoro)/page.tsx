@@ -38,10 +38,5 @@ export default function Home() {
   }, [teams, currentScuderia, setCurrentScuderia]);
 
   if (loading) return <Loader />;
-
-  return (
-    <>
-      <Pomodoro />
-    </>
-  );
+  return <Pomodoro />;
 }

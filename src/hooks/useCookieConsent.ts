@@ -14,7 +14,7 @@ export function useCookieConsent() {
           title: '¿Te gustaría aceptar nuestras cookies? 🍪',
           description:
             'Este sitio utiliza cookies esenciales para garantizar su correcto funcionamiento y mejorar tu experiencia de navegación.',
-          link: 'https://pitmydoro.com/politica-de-cookies',
+          link: '/cookies',
           smallText:
             'Al hacer clic en "Aceptar", aceptas el uso de cookies. Puedes aceptar o rechazar su uso en cualquier momento.',
           declineText: 'Rechazar',
