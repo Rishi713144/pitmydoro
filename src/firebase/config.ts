@@ -4,8 +4,6 @@ import { getAuth } from 'firebase/auth';
 import { environment } from '@/environments/environment.dev';
 
 if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
   window.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
 }
 
