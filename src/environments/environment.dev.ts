@@ -8,4 +8,5 @@ export const environment = {
     appId: process.env.NEXT_PUBLIC_APP_ID,
   },
   recaptchaSiteKey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+  googleAnalyticsId: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID,
 };

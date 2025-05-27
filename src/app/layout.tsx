@@ -8,6 +8,8 @@ import { BottomBanner } from '@/components/BottomBanner';
 import { Metadata } from 'next';
 import AppCheckWrapper from '@/app/AppCheckWrapper';
 import Head from 'next/head';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { environment } from '@/environments/environment.dev';
 
 export const metadata: Metadata = {
   title: 'Pit My Doro',
@@ -64,6 +66,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </Provider>
         </NextIntlClientProvider>
       </body>
+
+      <GoogleAnalytics gaId={environment.googleAnalyticsId as string} />
     </html>
   );
 }
