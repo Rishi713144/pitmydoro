@@ -59,11 +59,7 @@ export function useCookieConsent() {
 }
 
 function applyConsent(consent: { necessary: true; analytics: boolean; ads: boolean }) {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
   if (typeof window !== 'undefined' && window.gtag) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     window.gtag('consent', 'update', {
       ad_storage: consent.ads ? 'granted' : 'denied',
       analytics_storage: consent.analytics ? 'granted' : 'denied',
