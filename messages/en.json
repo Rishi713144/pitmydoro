@@ -29,7 +29,8 @@
       "successUpdateTask": "Task updated successfully",
       "successDeleteTask": "Task deleted successfully",
       "deleteTaskConfirmTitle": "Are you sure you want to delete this task?",
-      "deleteTaskConfirmMessage": "This action cannot be undone."
+      "deleteTaskConfirmMessage": "This action cannot be undone.",
+      "tasksHint": "\uD83D\uDCA1 Start adding tasks to organize your work session..."
     }
   },
   "settings": {
@@ -40,6 +41,7 @@
     "general": "General",
     "scuderia": "Scuderia",
     "help": "Help & Support",
+    "initialHint": "\uD83D\uDCA1 Customize your times and choose your favorite team to change the app theme.",
     "sections": {
       "timers": {
         "title": "Timers",
@@ -126,7 +128,7 @@
   },
   "404": {
     "title": "Oops... the page you're looking for doesn't exist or has been moved.",
-    "goBack": "Go back to the main page"
+    "goBack": "Go back"
   },
   "sections": {
     "mainTitle": "Your pace, your race, your time",
@@ -319,8 +321,12 @@
         "statement": "This service is offered globally and personally operated by an independent developer residing in Mexico, complying with local regulations for non-commercial digital services.",
         "conflict": "In case of conflict, resolution will be sought amicably and directly via email."
       },
+      "disclaimer": {
+        "title": "6. DISCLAIMER OF AFFILIATIONS",
+        "description": "PitMyDoro has no affiliation with <f1>Formula 1, FIA, any teams, drivers, brands, or official partners</f1>. This platform is a <community>community-inspired project</community> created by fans, for fans, to encourage focus and productivity using Formula 1 as a motivational theme."
+      },
       "contact": {
-        "title": "6. CONTACT",
+        "title": "7. CONTACT",
         "description": "If you have any questions regarding this Legal Notice, you may contact us via email at:",
         "email": "📧 contact@pitmydoro.com"
       }
@@ -358,6 +364,39 @@
         "title": "More information",
         "description": "For more details, please see our <privacy>Privacy Policy</privacy> or contact us by email."
       }
+    }
+  },
+  "footer": {
+    "copyright": "Pit my doro",
+    "madeWith": "Made with ❤️ by @srteerra",
+    "disclaimer": "This site is not affiliated with F1, Formula 1, or any of its teams or drivers.",
+    "links": {
+      "about": "About",
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy",
+      "legal": "Legal Notice"
+    }
+  },
+  "meta": {
+    "terms": {
+      "title": "Terms & Conditions – PitMyDoro",
+      "description": "Read the Terms and Conditions of PitMyDoro, which govern the use of the app and its services."
+    },
+    "privacy": {
+      "title": "Privacy Policy – PitMyDoro",
+      "description": "Learn how PitMyDoro collects, uses, and protects your personal data."
+    },
+    "cookies": {
+      "title": "Cookie Notice – PitMyDoro",
+      "description": "Details about our use of cookies and how to manage your preferences."
+    },
+    "legal": {
+      "title": "Legal Notice – PitMyDoro",
+      "description": "Legal notice and identification of the responsible party for PitMyDoro."
+    },
+    "pomodoro": {
+      "title": "Pit My Doro – F1-style Pomodoro Timer",
+      "description": "Use PitMyDoro to stay focused with a dynamic Formula 1-inspired Pomodoro timer."
     }
   }
 }

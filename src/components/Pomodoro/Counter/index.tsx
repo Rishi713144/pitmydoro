@@ -79,14 +79,12 @@ export const Counter = () => {
 
   const handleTick = ({ total }: { total: number }) => {
     const now = Date.now();
-
     const isRunning = countdownRef.current?.isStarted() && !countdownRef.current?.isPaused();
     if (!isRunning) return;
 
     if (total <= 4000 && !isEndingSoon) {
       setIsEndingSoon(true);
       radioSound();
-
       if (isDesktop()) {
         if (Notification.permission === 'granted' && enableNotifications) {
           new Notification(t('boxTitle'), {
@@ -95,7 +93,6 @@ export const Counter = () => {
           });
         }
       }
-
       if (navigator.vibrate) {
         navigator.vibrate([200, 100, 200]);
       }
@@ -107,12 +104,9 @@ export const Counter = () => {
 
     const allPomodoros = tasks.flatMap((t) => t.pomodoros);
     const incompletePomodoros = allPomodoros.filter((p) => !p.completedAt);
-
     const tireDuration = tiresSettings[selectedTire]?.duration ?? 25;
     const msPerPomodoro = tireDuration * 60 * 1000;
-
     const remainingFuture = (incompletePomodoros.length - 1) * msPerPomodoro;
-
     const totalRemaining = Math.max(total, 0) + Math.max(remainingFuture, 0);
     const newEst = moment(now + totalRemaining).format('HH:mm');
 
@@ -123,7 +117,6 @@ export const Counter = () => {
     countdownRef.current?.pause();
     setStopped(true);
     setIsActive(false);
-
     if (status === SessionStatusEnum.IN_SESSION) {
       const currentTire = tiresSettings[selectedTire];
       if (currentTire) {
@@ -142,13 +135,11 @@ export const Counter = () => {
   const handleStartClick = () => {
     countdownRef.current?.start();
     playSound();
-
     if (status === SessionStatusEnum.IN_SESSION) {
       setFlag(FlagEnum.GREEN);
     } else {
       setFlag(null);
     }
-
     setStopped(false);
     setIsActive(true);
   };
@@ -169,7 +160,6 @@ export const Counter = () => {
     const duration = moment
       .duration(Number(tiresSettings[selectedTire].duration), 'minutes')
       .asMilliseconds();
-
     setDate(Date.now() + duration);
     setStopped(true);
     setIsActive(false);
@@ -187,6 +177,7 @@ export const Counter = () => {
     if (await confirmAlert(t('acceptResetAll'))) {
       handleResetTimer();
       resetSession();
+      setEstTimeFinish('');
       onClose();
     }
   };
@@ -267,16 +258,19 @@ export const Counter = () => {
             onComplete={handleComplete}
             date={date}
             onTick={handleTick}
-            renderer={({ minutes, seconds }) => (
-              <Text
-                fontWeight='bold'
-                fontSize='7xl'
-                color={theme === 'dark' ? 'white' : counterColor}
-                className={jua.className}
-              >
-                {zeroPad(minutes)}:{zeroPad(seconds)}
-              </Text>
-            )}
+            renderer={({ hours, minutes, seconds }) => {
+              const totalMinutes = hours * 60 + minutes;
+              return (
+                <Text
+                  fontWeight='bold'
+                  fontSize='7xl'
+                  color={theme === 'dark' ? 'white' : counterColor}
+                  className={jua.className}
+                >
+                  {zeroPad(totalMinutes)}:{zeroPad(seconds)}
+                </Text>
+              );
+            }}
           />
         </Center>
         <Box flex={1} display='flex' justifyContent='flex-start'>
@@ -318,11 +312,11 @@ export const Counter = () => {
               </Text>
             )}
           </Text>
-          <Text fontSize='sm'>
+          <Text as={'p'} fontSize='sm'>
             {t('estFinishAt')}
             {': '}
             <Text as='span' fontWeight='bolder' color={{ base: 'gray.800', _dark: 'gray.200' }}>
-              {estTimeFinish}
+              {estTimeFinish || '--:--'}
             </Text>
           </Text>
         </Flex>

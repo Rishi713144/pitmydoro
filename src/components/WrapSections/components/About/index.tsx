@@ -34,16 +34,18 @@ export const About = () => {
       <GridItem colSpan={{ base: 2, lg: 1 }} rowStart={{ base: 2, lg: 1 }}>
         <Flex direction={{ base: 'column', lg: 'row' }} align='flex-start' gap={6}>
           <Box>
-            <Text fontSize='3xl' fontWeight='semibold' className={jersey15.className}>
+            <Text as={'h2'} fontSize='3xl' fontWeight='semibold' className={jersey15.className}>
               {t('title')}
             </Text>
 
             <TiDivider width='5%' height={'4px'} my={'16px'} color={darkenColor} />
 
-            {t.rich('description', {
-              strong: (chunks) => <strong>{chunks}</strong>,
-              br: () => <br />,
-            })}
+            <Text as={'p'}>
+              {t.rich('description', {
+                strong: (chunks) => <strong>{chunks}</strong>,
+                br: () => <br />,
+              })}
+            </Text>
           </Box>
         </Flex>
       </GridItem>
@@ -100,20 +102,26 @@ export const About = () => {
               <TiDivider width='5%' height={'4px'} my={'10px'} color={darkenColor} />
             </Flex>
 
-            {t.rich('description2', {
-              strong: (chunks) => <strong>{chunks}</strong>,
-              small: (chunks) => (
-                <Text as={'small'} opacity={0.7}>
-                  {chunks}
-                </Text>
-              ),
-              wiki: (chunks) => (
-                <Link href={'https://en.wikipedia.org/wiki/Pomodoro_Technique'} target={'_blank'}>
-                  <strong>{chunks}</strong>
-                </Link>
-              ),
-              br: () => <br />,
-            })}
+            <Text as={'p'}>
+              {t.rich('description2', {
+                strong: (chunks) => <strong>{chunks}</strong>,
+                small: (chunks) => (
+                  <Text as={'small'} opacity={0.7}>
+                    {chunks}
+                  </Text>
+                ),
+                wiki: (chunks) => (
+                  <Link
+                    style={{ textDecoration: 'underline' }}
+                    href={'https://en.wikipedia.org/wiki/Pomodoro_Technique'}
+                    target={'_blank'}
+                  >
+                    <strong>{chunks}</strong>
+                  </Link>
+                ),
+                br: () => <br />,
+              })}
+            </Text>
           </Box>
         </Flex>
       </GridItem>
@@ -145,7 +153,7 @@ export const About = () => {
                       {step}.
                     </Box>
 
-                    <Text>{stepText}</Text>
+                    <Text as={'p'}>{stepText}</Text>
                   </Flex>
                 );
               })}
@@ -184,13 +192,13 @@ export const About = () => {
             {t('nonF1.title')}
           </Text>
 
-          <Text w={{ base: '100%', lg: '60%' }}>
+          <Text as={'p'} w={{ base: '100%', lg: '60%' }}>
             {t.rich('nonF1.description', {
               strong: (chunks) => <strong>{chunks}</strong>,
             })}
           </Text>
 
-          <Text w={{ base: '100%', lg: '60%' }} fontSize={'sm'} color={'gray.500'}>
+          <Text as={'p'} w={{ base: '100%', lg: '60%' }} fontSize={'sm'} color={'gray.500'}>
             {t.rich('nonF1.description2', {
               f1Blog: (chunks) => (
                 <Link href={'/what-is-f1'} target={'_blank'}>

@@ -9,9 +9,10 @@ import {
   IconButton,
   Tabs,
 } from '@chakra-ui/react';
+import { Tooltip } from '@/components/ui/tooltip';
 import { Portal } from '@zag-js/react';
 import { TiCogOutline } from 'react-icons/ti';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IconType } from 'react-icons';
 import { GiFullMotorcycleHelmet } from 'react-icons/gi';
 import { General } from '@/components/Pomodoro/Settings/General';
@@ -19,6 +20,7 @@ import { Scuderia } from '@/components/Pomodoro/Settings/Scuderia';
 import { Support } from '@/components/Pomodoro/Settings/Support';
 import { useTranslations } from 'use-intl';
 import './styles.css';
+import useUserHintsStore from '@/stores/UserHints.store';
 
 enum Tab {
   GENERAL = 'general',
@@ -31,6 +33,7 @@ interface LinkItemProps {
   icon: IconType;
   id: Tab;
 }
+
 const NavItem = ({ icon, isActive, children, ...rest }: any) => {
   return (
     <Box style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
@@ -66,8 +69,11 @@ const NavItem = ({ icon, isActive, children, ...rest }: any) => {
 };
 
 export const Settings = () => {
+  const [showTooltip, setShowTooltip] = useState(false);
   const [activeTab, setActiveTab] = useState<string | Tab>(Tab.GENERAL);
   const t = useTranslations('settings');
+  const hasSeenSettingsTooltip = useUserHintsStore((state) => state.hasSeenSettingsTooltip);
+  const setHasSeenSettingsTooltip = useUserHintsStore((state) => state.setHasSeenSettingsTooltip);
 
   const LinkItems: Array<LinkItemProps> = [
     { name: t('general'), icon: TiCogOutline, id: Tab.GENERAL },
@@ -75,11 +81,40 @@ export const Settings = () => {
     // { name: t('help'), icon: FaQuestion, id: Tab.SUPPORT },
   ];
 
+  useEffect(() => {
+    if (!hasSeenSettingsTooltip) {
+      setTimeout(() => {
+        setShowTooltip(true);
+      }, 3000);
+    }
+  }, [hasSeenSettingsTooltip]);
+
+  const handleMouseEnter = () => {
+    if (!hasSeenSettingsTooltip) {
+      setHasSeenSettingsTooltip(true);
+      setShowTooltip(false);
+    }
+  };
+
   return (
     <Dialog.Root placement={'center'} size={'xl'} preventScroll={true}>
       <Dialog.Trigger asChild>
-        <IconButton variant='ghost' size='md' rounded='full' aria-label='Settings'>
-          <TiCogOutline />
+        <IconButton
+          variant='ghost'
+          size='md'
+          rounded='full'
+          aria-label='Settings'
+          onMouseEnter={handleMouseEnter}
+        >
+          <Tooltip
+            content={t('initialHint')}
+            open={showTooltip}
+            contentProps={{ css: { '--tooltip-bg': 'tomato' }, _dark: { color: 'white' } }}
+            positioning={{ placement: 'right-start' }}
+            showArrow
+          >
+            <TiCogOutline />
+          </Tooltip>
         </IconButton>
       </Dialog.Trigger>
       <Portal>
