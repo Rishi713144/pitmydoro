@@ -43,7 +43,7 @@ export const Timers = () => {
             <Box
               cursor={'pointer'}
               style={{
-                backgroundImage: "url('./images/tires.png')",
+                backgroundImage: "url('./images/tires.webp')",
                 backgroundSize,
                 backgroundPositionX: `-${ICON_SIZE * idx}px`,
                 width: `${ICON_SIZE}px`,
@@ -74,7 +74,7 @@ export const Timers = () => {
           <Box
             cursor={'pointer'}
             style={{
-              backgroundImage: "url('./images/tires.png')",
+              backgroundImage: "url('./images/tires.webp')",
               backgroundSize,
               backgroundPositionX: `-${ICON_SIZE * 5}px`, // 6th icon (short break)
               width: `${ICON_SIZE}px`,
@@ -104,7 +104,7 @@ export const Timers = () => {
           <Box
             cursor={'pointer'}
             style={{
-              backgroundImage: "url('./images/tires.png')",
+              backgroundImage: "url('./images/tires.webp')",
               backgroundSize,
               backgroundPositionX: `-${ICON_SIZE * 6}px`, // 7th icon (long break)
               width: `${ICON_SIZE}px`,

@@ -13,7 +13,7 @@ export default function NotFoundPage() {
     <Center minH='100vh'>
       <VStack textAlign='center' px={6} gap={6}>
         <Image
-          src='/images/404.png'
+          src='/images/404.webp'
           alt='404'
           width={{ base: '100%', md: '50%' }}
           height={{ base: '100%', md: '50%' }}

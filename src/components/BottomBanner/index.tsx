@@ -82,7 +82,7 @@ export const BottomBanner = () => {
 
             {link && (
               <Box mt={3} fontSize='sm' display={'flex'} alignItems='center' gap={1}>
-                <Link href={link} target={'_blank'}>
+                <Link href={link} target={'_blank'} rel='noopener noreferrer'>
                   Mas información
                 </Link>
                 <TbExternalLink />

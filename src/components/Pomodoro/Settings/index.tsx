@@ -8,6 +8,7 @@ import {
   Icon,
   IconButton,
   Tabs,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { Tooltip } from '@/components/ui/tooltip';
 import { Portal } from '@zag-js/react';
@@ -81,6 +82,11 @@ export const Settings = () => {
     // { name: t('help'), icon: FaQuestion, id: Tab.SUPPORT },
   ];
 
+  const placementHint = useBreakpointValue({
+    base: 'bottom-end',
+    md: 'right-start',
+  });
+
   useEffect(() => {
     if (!hasSeenSettingsTooltip) {
       setTimeout(() => {
@@ -104,13 +110,14 @@ export const Settings = () => {
           size='md'
           rounded='full'
           aria-label='Settings'
+          onClick={handleMouseEnter}
           onMouseEnter={handleMouseEnter}
         >
           <Tooltip
             content={t('initialHint')}
             open={showTooltip}
             contentProps={{ css: { '--tooltip-bg': 'tomato' }, _dark: { color: 'white' } }}
-            positioning={{ placement: 'right-start' }}
+            positioning={{ placement: placementHint as 'bottom-end' | 'right-start' }}
             showArrow
           >
             <TiCogOutline />

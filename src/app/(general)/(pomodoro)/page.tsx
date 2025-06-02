@@ -7,10 +7,13 @@ import { Router } from 'next/router';
 import { useTeams } from '@/hooks/useTeams';
 import usePomodoroStore from '@/stores/Pomodoro.store';
 import { useCookieConsent } from '@/hooks/useCookieConsent';
+import { NextSeo } from 'next-seo';
+import { useSeo } from '@/hooks/useSEO';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const { teams } = useTeams();
+  const seo = useSeo();
   const currentScuderia = usePomodoroStore((state) => state.currentScuderia);
   const setCurrentScuderia = usePomodoroStore((state) => state.setCurrentScuderia);
 
@@ -39,5 +42,10 @@ export default function Home() {
   }, [teams, currentScuderia, setCurrentScuderia]);
 
   if (loading) return <Loader />;
-  return <Pomodoro />;
+  return (
+    <>
+      <NextSeo {...seo} />
+      <Pomodoro />
+    </>
+  );
 }

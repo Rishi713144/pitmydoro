@@ -1,5 +1,4 @@
 import { Box, Flex, Image, RadioCard, Skeleton, Text, VStack } from '@chakra-ui/react';
-import F1Car from '../../../../../public/images/f1car.png';
 import NextImage from 'next/image';
 import { ITeam } from '@/interfaces/Teams.interface';
 import React, { useEffect, useState } from 'react';
@@ -101,7 +100,7 @@ export const Scuderia = () => {
                       </Box>
 
                       <Image asChild alt={'...'}>
-                        <NextImage width={200} height={100} src={team?.carURL ?? F1Car} alt='...' />
+                        <NextImage width={200} height={100} src={team?.carURL || ''} alt='...' />
                       </Image>
                     </Flex>
                   </RadioCard.ItemControl>

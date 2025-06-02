@@ -89,7 +89,7 @@ export const Counter = () => {
         if (Notification.permission === 'granted' && enableNotifications) {
           new Notification(t('boxTitle'), {
             body: t('boxDescription'),
-            icon: '/f1-icon.png',
+            icon: '/f1-icon.webp',
           });
         }
       }

@@ -58,7 +58,7 @@ export const TimerSelector = ({ onSelect, value }: Props) => {
             cursor={'pointer'}
             onClick={() => handleClick(index)}
             style={{
-              backgroundImage: "url('./images/tires.png')",
+              backgroundImage: "url('./images/tires.webp')",
               backgroundSize: `${ICON_SIZE * TOTAL_ICONS}px auto`,
               backgroundPositionX: `-${ICON_SIZE * index}px`,
               width: `${ICON_SIZE}px`,

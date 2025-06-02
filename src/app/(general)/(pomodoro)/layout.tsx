@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import { WrapSections } from '@/components/WrapSections';
 import { MainContainer } from '@/components/MainContainer';
 import { Metadata } from 'next';
+import { keywords } from '@/utils/constants/Keywords';
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getUserLocale();
@@ -33,6 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: t('description'),
       images: ['https://pitmydoro.com/images/cover.png'],
     },
+    keywords: keywords,
   };
 }
 

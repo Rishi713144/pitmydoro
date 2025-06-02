@@ -57,7 +57,7 @@ export const About = () => {
       >
         <Flex justifyContent={{ base: 'center', lg: 'flex-end' }}>
           <Image
-            src='/images/clock.png'
+            src='/images/clock.webp'
             alt='Pomodoro'
             width={300}
             height={300}
@@ -70,7 +70,7 @@ export const About = () => {
       <GridItem rowStart={{ base: 3, lg: 2 }} colStart={1} colSpan={{ base: 2, lg: 1 }}>
         <Flex justifyContent={{ base: 'center', lg: 'flex-start' }}>
           <Image
-            src='/images/tasks.png'
+            src='/images/tasks.webp'
             alt='Pomodoro'
             width={300}
             height={300}
@@ -115,6 +115,7 @@ export const About = () => {
                     style={{ textDecoration: 'underline' }}
                     href={'https://en.wikipedia.org/wiki/Pomodoro_Technique'}
                     target={'_blank'}
+                    rel='noopener noreferrer'
                   >
                     <strong>{chunks}</strong>
                   </Link>
@@ -169,7 +170,7 @@ export const About = () => {
       >
         <Flex justifyContent={{ base: 'center', lg: 'flex-end' }}>
           <Image
-            src='/images/check.png'
+            src='/images/check.webp'
             alt='Pomodoro'
             width={400}
             height={400}
@@ -201,7 +202,7 @@ export const About = () => {
           <Text as={'p'} w={{ base: '100%', lg: '60%' }} fontSize={'sm'} color={'gray.500'}>
             {t.rich('nonF1.description2', {
               f1Blog: (chunks) => (
-                <Link href={'/what-is-f1'} target={'_blank'}>
+                <Link href={'/what-is-f1'} target={'_blank'} rel='noopener noreferrer'>
                   <strong>{chunks}</strong>
                 </Link>
               ),

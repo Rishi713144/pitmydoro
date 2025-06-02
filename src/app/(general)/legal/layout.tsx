@@ -3,6 +3,7 @@ import { getUserLocale } from '@/services/locale';
 import { getTranslations } from 'next-intl/server';
 import { MainContainer } from '@/components/MainContainer';
 import { Metadata } from 'next';
+import { keywords } from '@/utils/constants/Keywords';
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getUserLocale();
@@ -12,6 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t('title'),
     description: t('description'),
     icons: './favicon.ico',
+    keywords: keywords,
   };
 }
 

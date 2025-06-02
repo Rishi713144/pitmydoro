@@ -35,7 +35,7 @@ export const WrapSections = () => {
       <Grid templateColumns='2fr 12fr 2fr'>
         <GridItem colStart={2}>
           <Center flexDirection={'column'} textAlign={'center'} mb={'48px'}>
-            <Text textStyle={'4xl'} fontWeight='bold' className={jersey15.className}>
+            <Text as={'h1'} textStyle={'4xl'} fontWeight='bold' className={jersey15.className}>
               {t('mainTitle')}
             </Text>
 

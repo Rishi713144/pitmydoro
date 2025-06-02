@@ -1,4 +1,4 @@
-import { HStack, Separator, Text } from '@chakra-ui/react';
+import { HStack, Separator, Text, useBreakpointValue } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { usePomodoro } from '@/hooks/usePomodoro';
 import usePomodoroStore from '@/stores/Pomodoro.store';
@@ -28,6 +28,11 @@ export const Tasks = () => {
   const setHasSeenTasksTooltip = useUserHintsStore((state) => state.setHasSeenTasksTooltip);
   const t = useTranslations('pomodoro.tasks');
   const [showTooltip, setShowTooltip] = useState(false);
+
+  const placementHint = useBreakpointValue({
+    base: 'bottom',
+    md: 'left-start',
+  });
 
   const handleTaskClick = (task: ITask) => {
     if (!editingTask) {
@@ -92,12 +97,15 @@ export const Tasks = () => {
         content={t('tasksHint')}
         open={showTooltip}
         contentProps={{ css: { '--tooltip-bg': 'tomato' }, _dark: { color: 'white' } }}
-        positioning={{ placement: 'left-start' }}
+        positioning={{ placement: placementHint as 'bottom' | 'left-start' }}
         showArrow
       >
         <ZoneButton
           isDisabled={!!editingTask}
-          onClick={() => handleAddTask()}
+          onClick={() => {
+            handleMouseEnter();
+            handleAddTask();
+          }}
           onMouseEnter={handleMouseEnter}
           fontWeight={'semibold'}
           size={'sm'}

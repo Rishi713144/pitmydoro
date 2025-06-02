@@ -25,7 +25,7 @@ export function useCookieConsent() {
             'Al hacer clic en "Aceptar", aceptas el uso de cookies. Puedes aceptar o rechazar su uso en cualquier momento.',
           declineText: 'Solo necesarias',
           acceptText: 'Aceptar',
-          image: '/images/cookie.png',
+          image: '/images/cookie.webp',
           onAccept: () => {
             const settings = {
               necessary: true,

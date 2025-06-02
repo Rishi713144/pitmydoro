@@ -10,12 +10,20 @@ import AppCheckWrapper from '@/app/AppCheckWrapper';
 import Head from 'next/head';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { environment } from '@/environments/environment.dev';
+import { keywords } from '@/utils/constants/Keywords';
 
 export const metadata: Metadata = {
   title: 'Pit My Doro',
   description:
     'Pitmydoro, una forma distinta de usar el método Pomodoro: enfócate, descansa y avanza a tu ritmo, sin presiones.',
   icons: './favicon.ico',
+  alternates: {
+    canonical: 'https://pitmydoro.com',
+    languages: {
+      'en-US': 'https://pitmydoro.com',
+      'de-DE': 'https://pitmydoro.com',
+    },
+  },
   openGraph: {
     title: 'Pit My Doro',
     description:
@@ -38,6 +46,7 @@ export const metadata: Metadata = {
       'Pitmydoro, una forma distinta de usar el método Pomodoro: enfócate, descansa y avanza a tu ritmo, sin presiones.',
     images: ['https://pitmydoro.com/images/cover.png'],
   },
+  keywords: keywords,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
