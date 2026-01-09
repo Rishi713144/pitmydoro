@@ -1,12 +1,10 @@
 'use client';
-
 import { Pomodoro } from '@/components/Pomodoro';
 import React, { useEffect, useState } from 'react';
 import { Loader } from '@/components/Loader';
 import { Router } from 'next/router';
 import { useTeams } from '@/hooks/useTeams';
 import usePomodoroStore from '@/stores/Pomodoro.store';
-import { useCookieConsent } from '@/hooks/useCookieConsent';
 import { NextSeo } from 'next-seo';
 import { useSeo } from '@/hooks/useSEO';
 
@@ -16,8 +14,6 @@ export default function Home() {
   const seo = useSeo();
   const currentScuderia = usePomodoroStore((state) => state.currentScuderia);
   const setCurrentScuderia = usePomodoroStore((state) => state.setCurrentScuderia);
-
-  useCookieConsent();
 
   useEffect(() => {
     const handleStart = () => setLoading(true);
