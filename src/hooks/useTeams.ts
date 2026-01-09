@@ -5,7 +5,6 @@ import usePomodoroStore from '@/stores/Pomodoro.store';
 
 export const useTeams = () => {
   const teams = useTeamsStore((state) => state.teams);
-  const setTeams = useTeamsStore((state) => state.setTeams);
   const currentScuderia = usePomodoroStore((state) => state.currentScuderia);
   const setCurrentScuderia = usePomodoroStore((state) => state.setCurrentScuderia);
 
@@ -14,10 +13,6 @@ export const useTeams = () => {
       setCurrentScuderia(teams[0]);
     }
   }, [teams, currentScuderia, setCurrentScuderia]);
-
-  useEffect(() => {
-    setTeams([]);
-  }, []);
 
   return {
     teams,
