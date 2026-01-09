@@ -31,13 +31,13 @@ export default function CookieNoticePage() {
 
         <Flex as='section' flexDirection='column' gap={2}>
           <Text as='h2' fontSize='2xl' fontWeight='bold'>
-            {t('sections.types.title')}
+            {t('sections.enums.title')}
           </Text>
           <Box as='ul' listStyleType='disc' listStylePosition='inside'>
-            <li>{t('sections.types.technical')}</li>
-            <li>{t('sections.types.analytics')}</li>
-            <li>{t('sections.types.personalization')}</li>
-            <li>{t('sections.types.advertising')}</li>
+            <li>{t('sections.enums.technical')}</li>
+            <li>{t('sections.enums.analytics')}</li>
+            <li>{t('sections.enums.personalization')}</li>
+            <li>{t('sections.enums.advertising')}</li>
           </Box>
         </Flex>
 

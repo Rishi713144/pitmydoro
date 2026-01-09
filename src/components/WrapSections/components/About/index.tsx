@@ -7,7 +7,7 @@ import { TiDivider } from '@/components/WrapSections/components/Divider';
 import tinycolor from 'tinycolor2';
 import useSessionStore from '@/stores/Session.store';
 import usePomodoroStore from '@/stores/Pomodoro.store';
-import { jersey15 } from '@/fonts/Jersey';
+import { jersey15 } from '@/assets/fonts/Jersey';
 import Link from 'next/link';
 import { useColorModeValue } from '@/components/ui/color-mode';
 

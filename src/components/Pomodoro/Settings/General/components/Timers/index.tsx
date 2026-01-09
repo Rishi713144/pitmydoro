@@ -1,6 +1,6 @@
 import { Box, Flex, NumberInput, Text, VStack } from '@chakra-ui/react';
-import { TireTypeEnum } from '@/utils/enums/TireType.enum';
-import { SessionStatusEnum } from '@/utils/enums/SessionStatus.enum';
+import { TireTypeEnum } from '@/enums/TireType.enum';
+import { SessionStatusEnum } from '@/enums/SessionStatus.enum';
 import React from 'react';
 import { useSettings } from '@/hooks/useSettings';
 import { useTranslations } from 'use-intl';

@@ -6,20 +6,20 @@ import { RippleButton } from '@/components/RippleButton';
 import moment from 'moment';
 import { Settings } from '@/components/Pomodoro/Settings';
 import useSessionStore from '@/stores/Session.store';
-import { SessionStatusEnum } from '@/utils/enums/SessionStatus.enum';
+import { SessionStatusEnum } from '@/enums/SessionStatus.enum';
 import useSettingsStore from '@/stores/Settings.store';
 import usePomodoroStore from '@/stores/Pomodoro.store';
 import { usePomodoro } from '@/hooks/usePomodoro';
 import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from '@/components/ui/menu';
 import { FaFlag } from 'react-icons/fa';
 import { LuTimerReset } from 'react-icons/lu';
-import { FlagEnum } from '@/utils/enums/Flag.enum';
+import { FlagEnum } from '@/enums/Flag.enum';
 import { useTranslations } from 'use-intl';
 import { useAlert } from '@/hooks/useAlert';
 import tinycolor from 'tinycolor2';
 import { useTheme } from 'next-themes';
 import { useSounds } from '@/hooks/useSounds';
-import { jua } from '@/fonts/Jua';
+import { jua } from '@/assets/fonts/Jua';
 
 export const Counter = () => {
   const status = useSessionStore((state) => state.status);

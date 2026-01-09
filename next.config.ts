@@ -1,9 +1,7 @@
 import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 
-const withNextIntl = createNextIntlPlugin({
-  // Opcional: puedes pasar opciones aquí, como locales, pathnames, etc.
-});
+const withNextIntl = createNextIntlPlugin({});
 
 const nextConfig: NextConfig = {
   experimental: {

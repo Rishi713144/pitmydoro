@@ -1,7 +1,7 @@
 import React from 'react';
 import '../globals.css';
 import { Metadata } from 'next';
-import { keywords } from '@/utils/constants/Keywords';
+import { keywords } from '@/constants/Keywords';
 
 export const metadata: Metadata = {
   title: 'Pit My Doro',

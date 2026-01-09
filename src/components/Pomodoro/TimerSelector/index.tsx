@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import { useState } from 'react';
-import { TireTypeEnum } from '@/utils/enums/TireType.enum';
+import { TireTypeEnum } from '@/enums/TireType.enum';
 
 const tires = [
   TireTypeEnum.SOFT,

@@ -1,8 +1,8 @@
 import { ITeam } from '@/interfaces/Teams.interface';
 import usePomodoroStore from '@/stores/Pomodoro.store';
 import useSettingsStore from '@/stores/Settings.store';
-import { TireTypeEnum } from '@/utils/enums/TireType.enum';
-import { SessionStatusEnum } from '@/utils/enums/SessionStatus.enum';
+import { TireTypeEnum } from '@/enums/TireType.enum';
+import { SessionStatusEnum } from '@/enums/SessionStatus.enum';
 import useTeamsStore from '@/stores/Teams.store';
 
 export const useSettings = () => {

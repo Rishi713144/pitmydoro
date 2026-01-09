@@ -1,7 +1,7 @@
 import { create } from 'zustand';
-import { SessionStatusEnum } from '@/utils/enums/SessionStatus.enum';
-import { TireTypeEnum } from '@/utils/enums/TireType.enum';
-import { FlagEnum } from '@/utils/enums/Flag.enum';
+import { SessionStatusEnum } from '@/enums/SessionStatus.enum';
+import { TireTypeEnum } from '@/enums/TireType.enum';
+import { FlagEnum } from '@/enums/Flag.enum';
 
 interface SessionStore {
   status: SessionStatusEnum;

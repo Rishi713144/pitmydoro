@@ -2,7 +2,7 @@ import { Box, Image } from '@chakra-ui/react';
 import { keyframes } from '@emotion/react';
 import useSessionStore from '@/stores/Session.store';
 import { useEffect } from 'react';
-import { FlagEnum } from '@/utils/enums/Flag.enum';
+import { FlagEnum } from '@/enums/Flag.enum';
 
 const flash = keyframes`
   0% { opacity: 1; }

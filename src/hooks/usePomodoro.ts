@@ -4,7 +4,7 @@ import useSessionStore from '@/stores/Session.store';
 import useSettingsStore from '@/stores/Settings.store';
 import { useEffect, useMemo, useState } from 'react';
 import { ITask } from '@/interfaces/Task.interface';
-import { SessionStatusEnum } from '@/utils/enums/SessionStatus.enum';
+import { SessionStatusEnum } from '@/enums/SessionStatus.enum';
 import moment from 'moment';
 import { IPomodoro } from '@/interfaces/Pomodoro.interface';
 

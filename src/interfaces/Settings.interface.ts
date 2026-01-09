@@ -1,5 +1,5 @@
-import { TireTypeEnum } from '@/utils/enums/TireType.enum';
-import { SessionStatusEnum } from '@/utils/enums/SessionStatus.enum';
+import { TireTypeEnum } from '@/enums/TireType.enum';
+import { SessionStatusEnum } from '@/enums/SessionStatus.enum';
 import { Locale } from '@/i18n/config';
 
 export interface TireSettings {

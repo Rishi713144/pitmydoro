@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import { WrapSections } from '@/components/WrapSections';
 import { MainContainer } from '@/components/MainContainer';
 import { Metadata } from 'next';
-import { keywords } from '@/utils/constants/Keywords';
+import { keywords } from '@/constants/Keywords';
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getUserLocale();

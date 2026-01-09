@@ -6,11 +6,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { Toaster } from 'react-hot-toast';
 import { BottomBanner } from '@/components/BottomBanner';
 import { Metadata } from 'next';
-import AppCheckWrapper from '@/app/AppCheckWrapper';
 import Head from 'next/head';
-import { GoogleAnalytics } from '@next/third-parties/google';
-import { environment } from '@/environments/environment.dev';
-import { keywords } from '@/utils/constants/Keywords';
+import { keywords } from '@/constants/Keywords';
 
 export const metadata: Metadata = {
   title: 'Pit My Doro',
@@ -69,14 +66,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Provider>
             <ColorModeProvider enableSystem={false}>
               <Toaster position='top-right' />
-              <AppCheckWrapper>{children}</AppCheckWrapper>
+              {children}
               <BottomBanner />
             </ColorModeProvider>
           </Provider>
         </NextIntlClientProvider>
       </body>
-
-      <GoogleAnalytics gaId={environment.googleAnalyticsId as string} />
     </html>
   );
 }

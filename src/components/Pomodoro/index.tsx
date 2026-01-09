@@ -2,7 +2,7 @@ import { Box, Center, VStack, Image, Loader } from '@chakra-ui/react';
 import { TimerSelector } from '@/components/Pomodoro/TimerSelector';
 import { SegmentedControl } from '@/components/ui/segmented-control';
 import { Counter } from '@/components/Pomodoro/Counter';
-import { SessionStatusEnum } from '@/utils/enums/SessionStatus.enum';
+import { SessionStatusEnum } from '@/enums/SessionStatus.enum';
 import useSessionStore from '@/stores/Session.store';
 import tinycolor from 'tinycolor2';
 import usePomodoroStore from '@/stores/Pomodoro.store';

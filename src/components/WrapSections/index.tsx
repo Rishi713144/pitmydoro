@@ -8,7 +8,7 @@ import tinycolor from 'tinycolor2';
 import useSessionStore from '@/stores/Session.store';
 import usePomodoroStore from '@/stores/Pomodoro.store';
 import { TiDivider } from '@/components/WrapSections/components/Divider';
-import { jersey15 } from '@/fonts/Jersey';
+import { jersey15 } from '@/assets/fonts/Jersey';
 
 export const WrapSections = () => {
   const sessionStatus = useSessionStore((state) => state.status);
