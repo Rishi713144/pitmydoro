@@ -3,14 +3,13 @@ import { Pomodoro } from '@/components/Pomodoro';
 import React, { useEffect, useState } from 'react';
 import { Loader } from '@/components/Loader';
 import { Router } from 'next/router';
-import { useTeams } from '@/hooks/useTeams';
 import usePomodoroStore from '@/stores/Pomodoro.store';
 import { NextSeo } from 'next-seo';
 import { useSeo } from '@/hooks/useSEO';
+import { SCUDERIAS } from '@/constants/Scuderias';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
-  const { teams } = useTeams();
   const seo = useSeo();
   const currentScuderia = usePomodoroStore((state) => state.currentScuderia);
   const setCurrentScuderia = usePomodoroStore((state) => state.setCurrentScuderia);
@@ -32,10 +31,10 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (!currentScuderia && teams.length > 0) {
-      setCurrentScuderia(teams.find((team) => team.name === 'Ferrari') || teams[0]);
+    if (!currentScuderia && !!SCUDERIAS.length) {
+      setCurrentScuderia(SCUDERIAS.find((team) => team.name === 'Ferrari') || SCUDERIAS[0]);
     }
-  }, [teams, currentScuderia, setCurrentScuderia]);
+  }, [currentScuderia, setCurrentScuderia]);
 
   if (loading) return <Loader />;
   return (

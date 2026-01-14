@@ -10,7 +10,7 @@ import { Tasks } from '@/components/Pomodoro/Tasks';
 import { SpriteAnimation } from '@/components/SpriteAnimation';
 import { FlagSwitcher } from '@/components/Pomodoro/components/FlagSwitcher';
 import { useTranslations } from 'use-intl';
-import useTeamsStore from '@/stores/Teams.store';
+import { SCUDERIAS } from '@/constants/Scuderias';
 
 export const Pomodoro = () => {
   const sessionStatus = useSessionStore((state) => state.status);
@@ -19,7 +19,6 @@ export const Pomodoro = () => {
   const setStatus = useSessionStore((state) => state.setStatus);
   const selectedTire = useSessionStore((state) => state.selectedTire);
   const setSelectedTire = useSessionStore((state) => state.setSelectedTire);
-  const teams = useTeamsStore((state) => state.teams);
   const t = useTranslations('pomodoro');
 
   const darkenColor = tinycolor(currentScuderia?.colors?.background?.[sessionStatus])
@@ -78,7 +77,7 @@ export const Pomodoro = () => {
           transform='translate(-50%, -50%)'
           display='inline-block'
         >
-          {!teams?.length || !currentScuderia?.logoURL ? (
+          {!SCUDERIAS?.length || !currentScuderia?.logoURL ? (
             <Loader opacity={0.6} width={40} height={40} />
           ) : (
             <Image

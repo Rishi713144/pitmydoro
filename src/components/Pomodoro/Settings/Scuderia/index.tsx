@@ -3,14 +3,12 @@ import NextImage from 'next/image';
 import { ITeam } from '@/interfaces/Teams.interface';
 import React, { useEffect, useState } from 'react';
 import { useSettings } from '@/hooks/useSettings';
-import useTeamsStore from '@/stores/Teams.store';
 import { ColorPreview } from '@/components/ColorPreview';
 import { useTranslations } from 'use-intl';
+import { SCUDERIAS } from '@/constants/Scuderias';
 
 export const Scuderia = () => {
   const { currentScuderia, changeScuderia } = useSettings();
-  const teams = useTeamsStore((state) => state.teams);
-  const fetched = useTeamsStore((state) => state.fetched);
   const t = useTranslations('settings');
   const [selectedScuderia, setSelectedScuderia] = useState<string | null>(
     currentScuderia?.id || null
@@ -24,10 +22,10 @@ export const Scuderia = () => {
 
   useEffect(() => {
     if (!selectedScuderia) {
-      setSelectedScuderia(teams[0]?.id);
-      changeScuderia(teams[0]?.id);
+      setSelectedScuderia(SCUDERIAS[0]?.id);
+      changeScuderia(SCUDERIAS[0]?.id);
     }
-  }, [teams, selectedScuderia, changeScuderia]);
+  }, [selectedScuderia, changeScuderia]);
 
   return (
     <Box>
@@ -43,11 +41,11 @@ export const Scuderia = () => {
           maxW='lg'
           value={selectedScuderia}
           onValueChange={(e) => handleChange(e.value)}
-          defaultValue={teams[0]?.id}
+          defaultValue={SCUDERIAS[0]?.id}
         >
           <VStack align='stretch'>
-            {teams.map((team: ITeam, idx: number) => (
-              <Skeleton key={idx} height='150px' loading={!fetched}>
+            {SCUDERIAS.map((team: ITeam, idx: number) => (
+              <Skeleton key={idx} height='150px' loading={!team}>
                 <RadioCard.Item
                   key={idx}
                   value={team.id}
@@ -87,7 +85,7 @@ export const Scuderia = () => {
                         flex={1}
                       >
                         <Flex alignItems='center' gap={2}>
-                          <Skeleton borderRadius={'full'} loading={!fetched}>
+                          <Skeleton borderRadius={'full'} loading={!team}>
                             <Image src={team.logoURL} w={'50px'} h={'50px'} alt={'...'} />
                           </Skeleton>
 

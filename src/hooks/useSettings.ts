@@ -3,10 +3,9 @@ import usePomodoroStore from '@/stores/Pomodoro.store';
 import useSettingsStore from '@/stores/Settings.store';
 import { TireTypeEnum } from '@/enums/TireType.enum';
 import { SessionStatusEnum } from '@/enums/SessionStatus.enum';
-import useTeamsStore from '@/stores/Teams.store';
+import { SCUDERIAS } from '@/constants/Scuderias';
 
 export const useSettings = () => {
-  const teams = useTeamsStore((state) => state.teams);
   const currentScuderia = usePomodoroStore((state) => state.currentScuderia);
   const tiresSettings = useSettingsStore((state) => state.tiresSettings);
   const setTiresSettings = useSettingsStore((state) => state.setTiresSettings);
@@ -83,7 +82,7 @@ export const useSettings = () => {
 
   const changeScuderia = (scuderia: ITeam | string) => {
     if (typeof scuderia === 'string') {
-      setCurrentScuderia(teams.find((team: ITeam) => team.id == scuderia) as ITeam);
+      setCurrentScuderia(SCUDERIAS.find((team: ITeam) => team.id == scuderia) as ITeam);
     } else {
       setCurrentScuderia(scuderia);
     }
@@ -91,7 +90,6 @@ export const useSettings = () => {
 
   return {
     currentScuderia,
-    teams,
     autoStartSession,
     autoStartBreak,
     autoStartNextTask,
