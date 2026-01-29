@@ -82,7 +82,8 @@ export const Pomodoro = () => {
           ) : (
             <Image
               src={currentScuderia?.logoURL}
-              alt={'absolute'}
+              data-pw-id={'scuderia-logo'}
+              alt={'scuderia-logo'}
               w='auto'
               h='auto'
               style={{

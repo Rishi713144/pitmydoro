@@ -33,6 +33,7 @@ export const SpriteAnimation: React.FC<SpriteAnimationProps> = ({
 
   return (
     <Box
+      data-pw-id={'scuderia-sprite'}
       w={`${frameWidth}px`}
       h={`${frameHeight}px`}
       bgImage={`url(${src})`}
