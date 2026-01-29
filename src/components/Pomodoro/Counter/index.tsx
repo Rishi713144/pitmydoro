@@ -157,9 +157,14 @@ export const Counter = () => {
   };
 
   const handleResetTimer = () => {
-    const duration = moment
-      .duration(Number(tiresSettings[selectedTire].duration), 'minutes')
-      .asMilliseconds();
+    const newTime =
+      status === SessionStatusEnum.LONG_BREAK
+        ? breaksDuration[SessionStatusEnum.LONG_BREAK]
+        : status === SessionStatusEnum.SHORT_BREAK
+          ? breaksDuration[SessionStatusEnum.SHORT_BREAK]
+          : tiresSettings[selectedTire].duration;
+
+    const duration = moment.duration(Number(newTime), 'minutes').asMilliseconds();
     setDate(Date.now() + duration);
     setStopped(true);
     setIsActive(false);
@@ -224,13 +229,7 @@ export const Counter = () => {
               </IconButton>
             </MenuTrigger>
             <MenuContent>
-              <MenuItem
-                onClick={handleResetClick}
-                color={'fg.warning'}
-                _hover={{ backgroundColor: 'fg.warning/10' }}
-                value='resetTimer'
-                cursor='pointer'
-              >
+              <MenuItem onClick={handleResetClick} value='resetTimer' cursor='pointer'>
                 <LuTimerReset />
                 {t('resetTimer')}
               </MenuItem>

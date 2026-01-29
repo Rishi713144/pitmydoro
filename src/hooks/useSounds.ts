@@ -8,7 +8,7 @@ export const useSounds = () => {
     if (!enableSounds) return;
 
     const sound = new Howl({
-      src: ['sounds/play.mp3'],
+      src: ['sounds/play.wav'],
     });
 
     sound.play();
@@ -18,7 +18,7 @@ export const useSounds = () => {
     if (!enableSounds) return;
 
     const sound = new Howl({
-      src: ['sounds/resume.mp3'],
+      src: ['sounds/resume.wav'],
     });
 
     sound.play();
