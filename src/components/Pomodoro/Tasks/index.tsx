@@ -12,6 +12,15 @@ import { Tooltip } from '@/components/ui/tooltip';
 import useUserHintsStore from '@/stores/UserHints.store';
 
 export const Tasks = () => {
+  const {
+    handleAddTask,
+    editingTask,
+    setEditingTask,
+    handleEditTask,
+    handleDeleteTask,
+    handleCheckTask,
+    handleReorderTasks,
+  } = usePomodoro();
   const tasks = usePomodoroStore((state) => state.tasks);
   const currentTask = usePomodoroStore((state) => state.currentTask);
   const setCurrentTask = usePomodoroStore((state) => state.setCurrentTask);
@@ -19,8 +28,6 @@ export const Tasks = () => {
   const setHasSeenTasksTooltip = useUserHintsStore((state) => state.setHasSeenTasksTooltip);
   const t = useTranslations('pomodoro.tasks');
   const [showTooltip, setShowTooltip] = useState(false);
-  const { handleAddTask, editingTask, setEditingTask, handleEditTask, handleReorderTasks } =
-    usePomodoro();
 
   const placementHint = useBreakpointValue({
     base: 'bottom',
@@ -72,6 +79,9 @@ export const Tasks = () => {
           <SortableList.Item id={task.id}>
             <TaskCard
               task={task}
+              onTaskCheck={handleCheckTask}
+              onTaskEdit={setEditingTask}
+              onTaskDelete={handleDeleteTask}
               onTaskSubmit={handleEditTask}
               onTaskClick={handleTaskClick}
               isActive={currentTask?.id === task.id}
