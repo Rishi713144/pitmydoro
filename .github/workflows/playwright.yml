@@ -10,25 +10,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      - uses: oven-sh/setup-bun@v1
         with:
-          node-version: lts/*
+          bun-version: latest
+
       - name: Install dependencies
-        run: npm install
-      - name: Build application
-        run: npm run build
-      - name: Start server
-        run: npm run dev
-        env:
-          PORT: 3000
-      - name: Wait for server
-        run: npx wait-on http://localhost:3000
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-      - name: Run Playwright tests
+        run: bun install --frozen-lockfile
+
+      - name: Install Playwright
+        run: bunx playwright install --with-deps
+
+      - name: Build
+        run: bun run build
+
+      - name: Test
+        run: bun run dev & bunx wait-on http://localhost:3000 && bunx playwright test
         env:
           NEXT_PLAYWRIGHT_TEST_BASE_URL: http://localhost:3000
-        run: npx playwright test
+
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
