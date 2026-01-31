@@ -79,3 +79,6 @@ You can check the [.env.example](https://github.com/srteerra/pitmydoro/blob/mast
 ```env
 NEXT_PLAYWRIGHT_TEST_BASE_URL= // This is used for testing with playwright
 ```
+
+## ! Disclaimer
+This project is not affiliated with F1, Formula 1, or any of its teams or drivers.
