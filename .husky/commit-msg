@@ -1,0 +1,45 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Get the commit message (first argument is the file containing the message)
+commit_msg=$(cat "$1")
+
+# Define the conventional commit pattern
+# Format: type(scope): description
+# Example: feat(auth): add login functionality
+conventional_commit_regex='^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?: .{1,}$'
+
+# Check if commit message follows the pattern
+if ! echo "$commit_msg" | grep -qE "$conventional_commit_regex"; then
+    echo ""
+    echo "🚫 Invalid commit message format!"
+    echo ""
+    echo "📋 Your commit message must follow the Conventional Commits standard:"
+    echo ""
+    echo "   type(scope): description"
+    echo ""
+    echo "📌 Types allowed:"
+    echo "   • feat     - New feature"
+    echo "   • fix      - Bug fix"
+    echo "   • docs     - Documentation changes"
+    echo "   • style    - Code style changes (formatting, etc.)"
+    echo "   • refactor - Code refactoring"
+    echo "   • perf     - Performance improvements"
+    echo "   • test     - Adding or updating tests"
+    echo "   • build    - Build system changes"
+    echo "   • ci       - CI/CD changes"
+    echo "   • chore    - Other changes (dependencies, etc.)"
+    echo "   • revert   - Revert a previous commit"
+    echo ""
+    echo "✅ Examples:"
+    echo "   feat(auth): add login functionality"
+    echo "   fix(api): resolve null pointer exception"
+    echo "   docs(readme): update installation steps"
+    echo "   test: add unit tests for user service"
+    echo ""
+    echo "❌ Your message: $commit_msg"
+    echo ""
+    exit 1
+fi
+
+echo "✅ Commit message follows Conventional Commits standard!"
