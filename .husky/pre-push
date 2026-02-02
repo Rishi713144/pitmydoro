@@ -32,7 +32,7 @@ echo '✅ Branch check passed!'
 echo '🚀 Running tests before push...'
 
 # Run tests
-bun test ||
+bun run test ||
 (
     echo ''
     echo '❌ Tests failed!'
