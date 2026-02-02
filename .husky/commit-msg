@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# Get the commit message (first argument is the file containing the message)
 commit_msg=$(cat "$1")
 
 # Define the conventional commit pattern
