@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ITask } from '@/interfaces/Task.interface';
+import { Task } from '@/interfaces/Task.interface';
 import { HiDotsVertical } from 'react-icons/hi';
 import { MdModeEdit, MdOutlineRestoreFromTrash, MdOutlineCheck } from 'react-icons/md';
 import { TiTimes } from 'react-icons/ti';
@@ -10,7 +10,7 @@ import { useTranslations } from 'use-intl';
 import { useAlert } from '@/hooks/useAlert';
 
 interface Props {
-  task: ITask;
+  task: Task;
   onTaskEdit: (taskId: string | null) => void;
   draggableIcon?: React.ReactNode;
   isEditing?: boolean;
@@ -26,7 +26,7 @@ interface Props {
       taskCompletedPomodoros: number;
     }
   ) => void;
-  onTaskClick?: (task: ITask) => void;
+  onTaskClick?: (task: Task) => void;
   onTaskDelete?: (taskId: string) => void;
 }
 

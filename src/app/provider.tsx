@@ -1,4 +1,5 @@
 'use client';
+
 import { ChakraProvider, createSystem, defaultConfig, defineConfig } from '@chakra-ui/react';
 import { ThemeProvider } from 'next-themes';
 import React, { useEffect, useMemo, useState } from 'react';

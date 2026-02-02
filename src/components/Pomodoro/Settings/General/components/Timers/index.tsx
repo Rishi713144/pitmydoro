@@ -4,10 +4,12 @@ import { SessionStatusEnum } from '@/enums/SessionStatus.enum';
 import React from 'react';
 import { useSettings } from '@/hooks/useSettings';
 import { useTranslations } from 'use-intl';
+import useSettingsStore from '@/stores/Settings.store';
 
 export const Timers = () => {
-  const { tiresSettings, breaksDuration, handleChangeBreakDuration, handleChangeTireDuration } =
-    useSettings();
+  const { handleChangeBreakDuration, handleChangeTireDuration } = useSettings();
+  const tiresSettings = useSettingsStore((state) => state.tiresSettings);
+  const breaksDuration = useSettingsStore((state) => state.breaksDuration);
   const t = useTranslations('settings.sections.timers');
 
   const tires = [

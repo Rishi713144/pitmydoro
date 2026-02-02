@@ -1,9 +1,9 @@
 import { TireTypeEnum } from '@/enums/TireType.enum';
 import { SessionStatusEnum } from '@/enums/SessionStatus.enum';
-import { ISettings } from '@/interfaces/Settings.interface';
+import { Settings } from '@/interfaces/Settings.interface';
 import { defaultLocale } from '@/i18n/config';
 
-export const DefaultSettings: ISettings = {
+export const DefaultSettings: Settings = {
   locale: defaultLocale,
   breaksInterval: 4,
   isLongBreakPerTask: false,

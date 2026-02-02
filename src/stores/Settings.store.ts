@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { createJSONStorage, devtools, persist } from 'zustand/middleware';
 import { TireTypeEnum } from '@/enums/TireType.enum';
 import { DefaultSettings } from '@/constants/DefaultSettings';
-import { ISettings, TireSettings } from '@/interfaces/Settings.interface';
+import { Settings, TireSettings } from '@/interfaces/Settings.interface';
 import { Locale } from '@/i18n/config';
 
 interface SettingsActions {
@@ -22,7 +22,7 @@ interface SettingsActions {
   setEnableNotifications: (enableNotifications: boolean) => void;
 }
 
-const useSettingsStore = create<ISettings & SettingsActions>()(
+const useSettingsStore = create<Settings & SettingsActions>()(
   devtools(
     persist(
       (set) => ({

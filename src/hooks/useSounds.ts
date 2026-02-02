@@ -4,7 +4,7 @@ import useSettingsStore from '@/stores/Settings.store';
 export const useSounds = () => {
   const enableSounds = useSettingsStore((state) => state.enableSounds);
 
-  const playSound = () => {
+  const playSound = (): void => {
     if (!enableSounds) return;
 
     const sound = new Howl({
@@ -14,7 +14,7 @@ export const useSounds = () => {
     sound.play();
   };
 
-  const resumeSound = () => {
+  const resumeSound = (): void => {
     if (!enableSounds) return;
 
     const sound = new Howl({
@@ -24,7 +24,7 @@ export const useSounds = () => {
     sound.play();
   };
 
-  const radioSound = () => {
+  const radioSound = (): void => {
     if (!enableSounds) return;
 
     const sound = new Howl({

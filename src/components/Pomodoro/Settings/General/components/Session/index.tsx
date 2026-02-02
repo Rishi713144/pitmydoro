@@ -4,16 +4,13 @@ import { LuMinus, LuPlus } from 'react-icons/lu';
 import React from 'react';
 import { useSettings } from '@/hooks/useSettings';
 import { useTranslations } from 'use-intl';
+import useSettingsStore from '@/stores/Settings.store';
 
 export const Session = () => {
-  const {
-    autoStartSession,
-    autoStartBreak,
-    breaksInterval,
-    handleBreaksInterval,
-    handleSwitchBreak,
-    handleSwitchSession,
-  } = useSettings();
+  const { handleBreaksInterval, handleSwitchBreak, handleSwitchSession } = useSettings();
+  const autoStartBreak = useSettingsStore((state) => state.autoStartBreak);
+  const autoStartSession = useSettingsStore((state) => state.autoStartSession);
+  const breaksInterval = useSettingsStore((state) => state.breaksInterval);
   const t = useTranslations('settings.sections.session');
 
   return (

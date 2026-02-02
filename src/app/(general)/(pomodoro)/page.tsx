@@ -1,4 +1,5 @@
 'use client';
+
 import { Pomodoro } from '@/components/Pomodoro';
 import React, { useEffect, useState } from 'react';
 import { Loader } from '@/components/Loader';

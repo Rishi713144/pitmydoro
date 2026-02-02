@@ -3,9 +3,11 @@ import { SwitchInput } from '@/components/Form/SwitchInput';
 import React from 'react';
 import { useTranslations } from 'use-intl';
 import { useSettings } from '@/hooks/useSettings';
+import useSettingsStore from '@/stores/Settings.store';
 
 export const Notifications = () => {
-  const { enableNotifications, handleSwitchNotifications } = useSettings();
+  const { handleSwitchNotifications } = useSettings();
+  const enableNotifications = useSettingsStore((state) => state.enableNotifications);
   const t = useTranslations('settings.sections.notifications');
 
   return (

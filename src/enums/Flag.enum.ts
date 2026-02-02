@@ -5,11 +5,3 @@ export enum FlagEnum {
   YELLOW = 'yellow',
   RED = 'red',
 }
-
-export const FlagEnumLabel = {
-  [FlagEnum.BLACK]: 'Black',
-  [FlagEnum.BLUE]: 'Blue',
-  [FlagEnum.GREEN]: 'Green',
-  [FlagEnum.YELLOW]: 'Yellow',
-  [FlagEnum.RED]: 'Red',
-};

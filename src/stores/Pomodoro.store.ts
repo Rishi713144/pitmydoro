@@ -1,23 +1,23 @@
 import { create } from 'zustand';
 import { createJSONStorage, devtools, persist } from 'zustand/middleware';
-import { ITeam } from '@/interfaces/Teams.interface';
-import { ITask } from '@/interfaces/Task.interface';
-import { IPomodoro } from '@/interfaces/Pomodoro.interface';
+import { Team } from '@/interfaces/Teams.interface';
+import { Task } from '@/interfaces/Task.interface';
+import { Pomodoro } from '@/interfaces/Pomodoro.interface';
 import useSettingsStore from '@/stores/Settings.store';
 
 interface PomodoroStore {
-  currentScuderia: ITeam | null;
-  currentTask: ITask | null;
-  tasks: ITask[];
-  extPomodoros: IPomodoro[];
+  currentScuderia: Team | null;
+  currentTask: Task | null;
+  tasks: Task[];
+  extPomodoros: Pomodoro[];
 }
 
 interface PomodoroActions {
-  setCurrentScuderia: (scuderia: ITeam) => void;
-  setCurrentTask: (task: ITask | null) => void;
-  addExtPomodoro: (pomodoro: IPomodoro) => void;
-  setTasks: (tasks: ITask[]) => void;
-  addTask: (task: ITask) => void;
+  setCurrentScuderia: (scuderia: Team) => void;
+  setCurrentTask: (task: Task | null) => void;
+  addExtPomodoro: (pomodoro: Pomodoro) => void;
+  setTasks: (tasks: Task[]) => void;
+  addTask: (task: Task) => void;
   removeTask: (taskId: string) => void;
   updateTaskStatus: (taskId: string, isCompleted: boolean) => void;
   updateTask: (taskId: string, data: any) => void;

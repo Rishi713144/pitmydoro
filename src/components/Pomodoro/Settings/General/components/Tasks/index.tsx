@@ -3,16 +3,14 @@ import { VStack } from '@chakra-ui/react';
 import React from 'react';
 import { useSettings } from '@/hooks/useSettings';
 import { useTranslations } from 'use-intl';
+import useSettingsStore from '@/stores/Settings.store';
 
 export const Tasks = () => {
-  const {
-    autoCompleteTask,
-    autoStartNextTask,
-    autoOrderTasks,
-    handleSwitchNextTask,
-    handleSwitchOrderTasks,
-    handleSwitchAutoCompleteTask,
-  } = useSettings();
+  const { handleSwitchNextTask, handleSwitchOrderTasks, handleSwitchAutoCompleteTask } =
+    useSettings();
+  const autoOrderTasks = useSettingsStore((state) => state.autoOrderTasks);
+  const autoStartNextTask = useSettingsStore((state) => state.autoStartNextTask);
+  const autoCompleteTask = useSettingsStore((state) => state.autoCompleteTask);
   const t = useTranslations('settings.sections.tasks');
 
   return (

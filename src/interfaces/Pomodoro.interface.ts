@@ -1,8 +1,8 @@
-import { ITeam } from '@/interfaces/Teams.interface';
+import { Team } from '@/interfaces/Teams.interface';
 
-export interface IPomodoro {
-  id: any;
-  team: ITeam;
+export interface Pomodoro {
+  id: string;
+  team: Team;
   duration: number | null;
   createdAt: number;
   startedAt?: number;

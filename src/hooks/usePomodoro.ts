@@ -1,12 +1,12 @@
 import usePomodoroStore from '@/stores/Pomodoro.store';
-import { ITeam } from '@/interfaces/Teams.interface';
+import { Team } from '@/interfaces/Teams.interface';
 import useSessionStore from '@/stores/Session.store';
 import useSettingsStore from '@/stores/Settings.store';
 import { useEffect, useMemo, useState } from 'react';
-import { ITask } from '@/interfaces/Task.interface';
+import { EditTask, Task } from '@/interfaces/Task.interface';
 import { SessionStatusEnum } from '@/enums/SessionStatus.enum';
 import moment from 'moment';
-import { IPomodoro } from '@/interfaces/Pomodoro.interface';
+import { Pomodoro } from '@/interfaces/Pomodoro.interface';
 
 export const usePomodoro = () => {
   const [editingTask, setEditingTask] = useState<string | null>(null);
@@ -34,7 +34,7 @@ export const usePomodoro = () => {
   const updateTaskStatus = usePomodoroStore((state) => state.updateTaskStatus);
   const removeTask = usePomodoroStore((state) => state.removeTask);
 
-  const allPomodoros = useMemo<IPomodoro[]>(() => {
+  const allPomodoros = useMemo<Pomodoro[]>(() => {
     if (!tasks.length) return extPomodoros;
     const tasksPomodoros = tasks
       .filter((task) => !task.completed)
@@ -50,9 +50,9 @@ export const usePomodoro = () => {
   const estTimeFinish = useMemo<string>(() => {
     if (!tasks.length) return now.format('HH:mm');
 
-    const tasksPomodoros = tasks.flatMap((task: ITask) => task.pomodoros);
+    const tasksPomodoros = tasks.flatMap((task: Task) => task.pomodoros);
     const incompletePomodoros = tasksPomodoros.filter(
-      (pomodoro: IPomodoro) => !pomodoro.completedAt
+      (pomodoro: Pomodoro) => !pomodoro.completedAt
     );
     const timeNow = now.valueOf();
 
@@ -68,11 +68,11 @@ export const usePomodoro = () => {
     switch (status) {
       case SessionStatusEnum.IN_SESSION:
         if (currentTask) {
-          updateTask(currentTask.id, (prevTask: ITask) => {
+          updateTask(currentTask.id, (prevTask: Task) => {
             const currentPomodoros = prevTask.pomodoros || [];
             let foundUncompleted = false;
 
-            const updatedPomodoros = currentPomodoros.map((pomodoro: IPomodoro) => {
+            const updatedPomodoros = currentPomodoros.map((pomodoro: Pomodoro) => {
               if (!pomodoro.completedAt && !foundUncompleted) {
                 foundUncompleted = true;
                 return {
@@ -91,7 +91,7 @@ export const usePomodoro = () => {
                 completedAt: moment().valueOf(),
                 isExternal: true,
                 duration: tiresSettings[selectedTire].duration,
-                team: currentScuderia as ITeam,
+                team: currentScuderia as Team,
               });
             }
             const incompleteRemaining = updatedPomodoros.filter((p) => !p.completedAt).length;
@@ -115,7 +115,7 @@ export const usePomodoro = () => {
           if (currentTask) {
             if (isLongBreakPerTask) {
               totalPomodoros = currentTask.pomodoros.filter(
-                (pomodoro) => pomodoro.completedAt
+                (pomodoro: Pomodoro) => pomodoro.completedAt
               ).length;
             } else {
               totalPomodoros = completedPomodoros + 1;
@@ -157,17 +157,18 @@ export const usePomodoro = () => {
     if (!currentTask) handleSetCurrentTask();
   };
 
-  const handleReorderTasks = (tasks: ITask[]) => {
+  const handleReorderTasks = (tasks: Task[]) => {
     setTasks(tasks);
 
-    tasks.forEach((task: ITask, index: number) => {
+    tasks.forEach((task: Task, index: number) => {
       updateTask(task.id, { order: index + 1 });
     });
 
     if (!currentTask) handleSetCurrentTask();
   };
 
-  const handleEditTask = (taskId: string, data: any) => {
+  const handleEditTask = (taskId: string, data: EditTask) => {
+    console.log(data);
     const { title, description, taskCompletedPomodoros, numberOfPomodoros } = data;
     const currentTaskEditing = tasks.find((task) => task.id === taskId);
 
@@ -204,7 +205,7 @@ export const usePomodoro = () => {
             completedAt: moment().valueOf(),
             skipped: true,
             duration: tiresSettings[selectedTire].duration,
-            team: currentScuderia as ITeam,
+            team: currentScuderia as Team,
           }));
 
           updatedPomodoros = [...updatedPomodoros, ...newPomodoros];
@@ -233,7 +234,7 @@ export const usePomodoro = () => {
         id: crypto.randomUUID(),
         createdAt: moment().valueOf(),
         duration: tiresSettings[selectedTire].duration,
-        team: currentScuderia as ITeam,
+        team: currentScuderia as Team,
       }));
 
       updatedPomodoros = [...updatedPomodoros, ...newPomodoros];
@@ -264,7 +265,7 @@ export const usePomodoro = () => {
           id: crypto.randomUUID(),
           createdAt: moment().valueOf(),
           duration: tiresSettings[selectedTire].duration,
-          team: currentScuderia as ITeam,
+          team: currentScuderia as Team,
         },
       ],
     };

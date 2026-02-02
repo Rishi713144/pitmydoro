@@ -3,9 +3,11 @@ import React from 'react';
 import { SwitchInput } from '@/components/Form/SwitchInput';
 import { useTranslations } from 'use-intl';
 import { useSettings } from '@/hooks/useSettings';
+import useSettingsStore from '@/stores/Settings.store';
 
 export const Sounds = () => {
-  const { enableSounds, handleSwitchSounds } = useSettings();
+  const { handleSwitchSounds } = useSettings();
+  const enableSounds = useSettingsStore((state) => state.enableSounds);
   const t = useTranslations('settings.sections.sounds');
 
   return (

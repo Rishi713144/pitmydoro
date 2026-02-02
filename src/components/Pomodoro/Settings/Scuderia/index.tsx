@@ -1,14 +1,16 @@
 import { Box, Flex, Image, RadioCard, Skeleton, Text, VStack } from '@chakra-ui/react';
 import NextImage from 'next/image';
-import { ITeam } from '@/interfaces/Teams.interface';
+import { Team } from '@/interfaces/Teams.interface';
 import React, { useEffect, useState } from 'react';
 import { useSettings } from '@/hooks/useSettings';
 import { ColorPreview } from '@/components/ColorPreview';
 import { useTranslations } from 'use-intl';
 import { SCUDERIAS } from '@/constants/Scuderias';
+import usePomodoroStore from '@/stores/Pomodoro.store';
 
 export const Scuderia = () => {
-  const { currentScuderia, changeScuderia } = useSettings();
+  const { changeScuderia } = useSettings();
+  const currentScuderia = usePomodoroStore((state) => state.currentScuderia);
   const t = useTranslations('settings');
   const [selectedScuderia, setSelectedScuderia] = useState<string | null>(
     currentScuderia?.id || null
@@ -44,7 +46,7 @@ export const Scuderia = () => {
           defaultValue={SCUDERIAS[0]?.id}
         >
           <VStack align='stretch'>
-            {SCUDERIAS.map((team: ITeam, idx: number) => (
+            {SCUDERIAS.map((team: Team, idx: number) => (
               <Skeleton key={idx} height='150px' loading={!team}>
                 <RadioCard.Item
                   key={idx}

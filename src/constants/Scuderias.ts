@@ -1,6 +1,6 @@
-import { ITeam } from '@/interfaces/Teams.interface';
+import { Team } from '@/interfaces/Teams.interface';
 
-export const SCUDERIAS: ITeam[] = [
+export const SCUDERIAS: Team[] = [
   {
     name: 'Red Bull Racing',
     id: 'red_bull_racing',

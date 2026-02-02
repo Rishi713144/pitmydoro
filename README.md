@@ -1,4 +1,5 @@
 # Pitmydoro 🏎️
+
 > An open-source Pomodoro timer with Formula 1 visuals
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org/)
@@ -24,11 +25,13 @@ The app features smooth animations, full customization options, and a fresh take
 <img width="198" height="194" alt="image" src="https://github.com/user-attachments/assets/a3049fb7-3dcf-4578-ac95-f11f9294e72c" />
 
 ### 🔘 Tire compounds as custom durations for your sessions
+
 Choose between Soft, Medium, or Hard compounds to set different work session lengths that fit your workflow
 
 <img width="550" height="314" alt="image" src="https://github.com/user-attachments/assets/68a844c6-9624-4736-8a38-d4870bb7a8ed" />
 
 ### 📋Manage your tasks between sessions
+
 Create, organize, and track your to-do list
 
 <img width="550" height="377" alt="image" src="https://github.com/user-attachments/assets/3c18376f-b777-4212-b105-73273b2fb885" />
@@ -56,6 +59,7 @@ Create, organize, and track your to-do list
 - npm, yarn, pnpm, or bun (preferable)
 
 ### Installation
+
 ```bash
 # Step 1 - Install all the dependencies
 bun install
@@ -69,6 +73,7 @@ Open [http://localhost:3000](http://localhost:3000) to see the app.
 ---
 
 ## 🛠️ Tech Stack
+
 Some of the tech we're using it's [Next.js 15](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), [Tailwind CSS](https://tailwindcss.com/), [Vercel](https://vercel.com/)
 
 ---
@@ -76,9 +81,11 @@ Some of the tech we're using it's [Next.js 15](https://nextjs.org/), [TypeScript
 ## 🎨 Environment Variables
 
 You can check the [.env.example](https://github.com/srteerra/pitmydoro/blob/master/.env.example):
+
 ```env
 NEXT_PLAYWRIGHT_TEST_BASE_URL= // This is used for testing with playwright
 ```
 
 ## ! Disclaimer
+
 This project is not affiliated with Formula 1, or any of its teams or drivers.

@@ -2,7 +2,7 @@ import { HStack, Separator, Text, useBreakpointValue } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { usePomodoro } from '@/hooks/usePomodoro';
 import usePomodoroStore from '@/stores/Pomodoro.store';
-import { ITask } from '@/interfaces/Task.interface';
+import { Task } from '@/interfaces/Task.interface';
 import { ZoneButton } from '../components/ZoneButton';
 import { LuCirclePlus } from 'react-icons/lu';
 import { SortableList } from '@/components/SortableList';
@@ -34,7 +34,7 @@ export const Tasks = () => {
     md: 'left-start',
   });
 
-  const handleTaskClick = (task: ITask) => {
+  const handleTaskClick = (task: Task) => {
     if (!editingTask) {
       setCurrentTask(task);
     } else {

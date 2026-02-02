@@ -1,32 +1,32 @@
-interface IPrimary {
+interface PrimaryColor {
   default: string;
   dark: string;
 }
 
-interface ISecondary {
+interface SecondaryColor {
   default: string;
   dark: string;
 }
 
-interface IBackground {
+interface BackgroundColor {
   session: string;
   shortBreak: string;
   longBreak: string;
 }
 
-interface ITeamColors {
-  primary: IPrimary;
-  secondary: ISecondary;
-  background: IBackground;
+interface TeamColors {
+  primary: PrimaryColor;
+  secondary: SecondaryColor;
+  background: BackgroundColor;
   light: string;
   dark: string;
 }
 
-export interface ITeam {
+export interface Team {
   name: string;
   id: string;
   logoURL: string;
   spriteURL: string;
   carURL: string;
-  colors: ITeamColors;
+  colors: TeamColors;
 }

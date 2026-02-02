@@ -7,7 +7,7 @@ export interface TireSettings {
   duration: number;
 }
 
-export interface ISettings {
+export interface Settings {
   locale: Locale;
   tiresSettings: Record<TireTypeEnum, TireSettings>;
   breaksInterval: number;
