@@ -7,6 +7,7 @@ interface Item {
   value: string;
   label: React.ReactNode;
   disabled?: boolean;
+  testId?: string;
 }
 
 export interface SegmentedControlProps extends SegmentGroup.RootProps {
@@ -40,6 +41,7 @@ export const SegmentedControl = React.forwardRef<HTMLDivElement, SegmentedContro
               disabled={item.disabled}
             >
               <SegmentGroup.ItemText
+                data-pw-id={item.testId || ''}
                 color={isActive && item.value === isActive ? 'white' : 'gray.600'}
               >
                 {item.label}

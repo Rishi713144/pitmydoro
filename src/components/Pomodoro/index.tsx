@@ -29,14 +29,17 @@ export const Pomodoro = () => {
     {
       value: SessionStatusEnum.IN_SESSION,
       label: t('sessionLabel'),
+      testId: 'session-label',
     },
     {
       value: SessionStatusEnum.SHORT_BREAK,
       label: t('shortBreakLabel'),
+      testId: 'short-break-label',
     },
     {
       value: SessionStatusEnum.LONG_BREAK,
       label: t('longBreakLabel'),
+      testId: 'long-break-label',
     },
   ];
 

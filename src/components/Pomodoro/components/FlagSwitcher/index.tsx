@@ -28,6 +28,7 @@ export const FlagSwitcher = () => {
   return (
     <Box>
       <Image
+        data-pw-id={`flag-${flag}`}
         src={`/images/${flag}-flag.webp`}
         alt={'absolute'}
         w='auto'

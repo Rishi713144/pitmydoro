@@ -47,6 +47,7 @@ export const TimerSelector = ({ onSelect, value }: Props) => {
     >
       <Box
         display={'flex'}
+        data-pw-id={'timer-selector'}
         style={{
           transform: `translateX(${translateX}px)`,
           transition: 'transform 0.5s ease-in-out',
@@ -56,6 +57,7 @@ export const TimerSelector = ({ onSelect, value }: Props) => {
           <Box
             key={index}
             cursor={'pointer'}
+            data-pw-id={`tire-${index}`}
             onClick={() => handleClick(index)}
             style={{
               backgroundImage: "url('./images/tires.webp')",
