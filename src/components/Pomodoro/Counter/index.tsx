@@ -217,6 +217,7 @@ export const Counter = () => {
           >
             <MenuTrigger asChild>
               <IconButton
+                data-pw-id={'reset-button'}
                 onClick={(e) => {
                   e.stopPropagation();
                   onOpen();
@@ -230,11 +231,17 @@ export const Counter = () => {
               </IconButton>
             </MenuTrigger>
             <MenuContent>
-              <MenuItem onClick={handleResetClick} value='resetTimer' cursor='pointer'>
+              <MenuItem
+                data-pw-id={'reset-timer-menu-item'}
+                onClick={handleResetClick}
+                value='resetTimer'
+                cursor='pointer'
+              >
                 <LuTimerReset />
                 {t('resetTimer')}
               </MenuItem>
               <MenuItem
+                data-pw-id={'reset-all-menu-item'}
                 onClick={handleResetAllClick}
                 color='fg.error'
                 _hover={{ backgroundColor: 'fg.error/10' }}
@@ -264,6 +271,7 @@ export const Counter = () => {
                 <Text
                   fontWeight='bold'
                   fontSize='7xl'
+                  data-pw-id={'timer-label'}
                   color={theme === 'dark' ? 'white' : counterColor}
                   className={jua.className}
                 >

@@ -4,7 +4,7 @@ Thank you for your interest in contributing to Pitmydoro! 🎉 We appreciate you
 
 This guide will help you get started with contributing to the project.
 
-*[Versión en español más abajo](#versión-en-español) / Spanish version below*
+_[Versión en español más abajo](#versión-en-español) / Spanish version below_
 
 ---
 
@@ -57,6 +57,7 @@ git push origin type/your-feature-name
 ### Tech Stack
 
 Pitmydoro is built with:
+
 - **Next.js** - React framework with TypeScript
 - **Chakra UI** - Component system
 - **Tailwind CSS** - Utility-first CSS
@@ -67,12 +68,12 @@ Pitmydoro is built with:
 ### Prerequisites
 
 Before you begin, ensure you have:
+
 - **Node.js** 20 or higher
 - **Bun** (recommended) or npm 10 or higher
 - **Playwright** (for testing)
 
 ### Installation Steps
-
 
 #### 1. Fork and clone the repository:
 
@@ -105,15 +106,15 @@ The application will be available at `http://localhost:3000`
 
 **Always branch from `master`** and use the appropriate prefix:
 
-| Prefix | Purpose | Example |
-|--------|---------|---------|
-| `feat/` | New features | `feat/add-dark-mode` |
-| `fix/` | Bug fixes | `fix/timer-not-stopping` |
-| `docs/` | Documentation | `docs/update-readme` |
-| `style/` | Code style changes | `style/format-components` |
-| `refactor/` | Code refactoring | `refactor/simplify-store` |
-| `test/` | Tests (unit, integration, e2e) | `test/add-timer-tests` |
-| `chore/` | Maintenance tasks | `chore/update-dependencies` |
+| Prefix      | Purpose                        | Example                     |
+| ----------- | ------------------------------ | --------------------------- |
+| `feat/`     | New features                   | `feat/add-dark-mode`        |
+| `fix/`      | Bug fixes                      | `fix/timer-not-stopping`    |
+| `docs/`     | Documentation                  | `docs/update-readme`        |
+| `style/`    | Code style changes             | `style/format-components`   |
+| `refactor/` | Code refactoring               | `refactor/simplify-store`   |
+| `test/`     | Tests (unit, integration, e2e) | `test/add-timer-tests`      |
+| `chore/`    | Maintenance tasks              | `chore/update-dependencies` |
 
 **Example workflow:**
 
@@ -140,6 +141,7 @@ git push origin type/add-notification-sound
 We follow [Conventional Commits](https://www.conventionalcommits.org/) specification, enforced by commitlint.
 
 **Format:**
+
 ```
 type(scope): description
 
@@ -149,6 +151,7 @@ type(scope): description
 ```
 
 **Types:**
+
 - `feat` - A new feature
 - `fix` - A bug fix
 - `docs` - Documentation only changes
@@ -167,6 +170,7 @@ The part of the codebase affected (e.g., `pomodoro`, `settings`, `ui`, `store`)
 **Examples:**
 
 ✅ **Good commits:**
+
 ```bash
 git commit -m "feat(pomodoro): add tooltips for control buttons"
 git commit -m "fix(settings): prevent invalid negative intervals"
@@ -176,6 +180,7 @@ git commit -m "refactor(store): simplify state management"
 ```
 
 ❌ **Bad commits:**
+
 ```bash
 git commit -m "fixed stuff"
 git commit -m "Update README.md"
@@ -196,6 +201,7 @@ Runs **automatically before each commit**:
 3. 🔍 **Linting** - Checks code quality with ESLint
 
 **What happens:**
+
 ```bash
 # When you run:
 git commit -m "feat(timer): add feature"
@@ -225,6 +231,7 @@ Runs **automatically before pushing to remote**:
 2. 🧪 **Tests** - All tests must pass
 
 **What happens:**
+
 ```bash
 # When you run:
 git push origin feat/my-feature
@@ -318,11 +325,13 @@ bun test
 Use Conventional Commits format:
 
 ✅ **Good PR titles:**
+
 - `feat(timer): add pause and resume functionality`
 - `fix(settings): resolve interval validation bug`
 - `docs(contributing): improve setup instructions`
 
 ❌ **Bad PR titles:**
+
 - `Update timer.tsx`
 - `Bug fix`
 - `New feature`
@@ -331,23 +340,29 @@ Use Conventional Commits format:
 
 ```markdown
 ## Description
+
 Brief description of what this PR does.
 
 ## What Changed?
+
 - List key changes made
 - Include technical details if relevant
 - Mention any dependencies added/removed
 
 ## Screenshots / Videos (OPTIONAL)
+
 If applicable, add screenshots or screen recordings to demonstrate the changes.
 
 ## Related Issues
+
 Closes #(issue number)
 
 ## Breaking Changes (OPTIONAL)
+
 If this PR includes breaking changes, describe them here and provide migration instructions.
 
 ## Additional Notes (OPTIONAL)
+
 Any additional information that reviewers should know.
 ```
 
@@ -385,6 +400,7 @@ The PR will automatically update with your new commits.
 ### Best Practices
 
 **Do:**
+
 - ✅ Write clean, readable code
 - ✅ Follow existing code patterns
 - ✅ Use TypeScript types properly
@@ -394,6 +410,7 @@ The PR will automatically update with your new commits.
 - ✅ Update documentation
 
 **Don't:**
+
 - ❌ Commit commented-out code
 - ❌ Leave console.log statements
 - ❌ Ignore TypeScript errors
@@ -461,7 +478,6 @@ const useSessionStore = create<SessionStore & SessionActions>((set) => ({
 }));
 
 export default useSessionStore;
-
 ```
 
 ---
@@ -520,7 +536,7 @@ import { useTranslation } from 'react-i18next';
 
 export const Timer = () => {
   const { t } = useTranslation();
-  
+
   return (
     <Button>{t('timer.start')}</Button>
   );
@@ -538,6 +554,7 @@ Want to add support for another language? Great! Here's how:
 5. Submit a PR with your translations
 
 **Example for French:**
+
 - Create `src/assets/messages/fr.json`
 - Translate all keys
 - Open a PR!
@@ -563,14 +580,15 @@ Ensure your changes are accessible:
   - Passwords
   - Tokens
   - `.env` files
-  
 - 🔑 **Use environment variables**:
+
   ```bash
   # .env.local (never committed)
   NEXT_PUBLIC_API_KEY=your_key_here
   ```
 
 - 🚨 **Report vulnerabilities privately**:
+
   - See [SECURITY.md](SECURITY.md) for reporting process
   - Do NOT open public issues for security bugs
 
@@ -616,18 +634,21 @@ bun update
 # Reinitialize Husky
 npx husky init
 ```
+
 </details>
 
 <details>
 <summary><strong>Commit message rejected</strong></summary>
 
 Your commit must follow Conventional Commits:
+
 ```bash
 git commit -m "type(scope): description"
 
 # Example:
 git commit -m "feat(timer): add pause button"
 ```
+
 </details>
 
 <details>
@@ -640,6 +661,7 @@ bun test
 # Fix the issues
 # Try committing again
 ```
+
 </details>
 
 <details>
@@ -652,6 +674,7 @@ bun lint --fix
 # For remaining issues, fix manually
 # Then commit again
 ```
+
 </details>
 
 ---
@@ -659,6 +682,7 @@ bun lint --fix
 ## Recognition
 
 Contributors are recognized in:
+
 - 🌟 The project's README
 - 📰 Release notes
 - 💖 Our eternal gratitude!
@@ -675,7 +699,7 @@ Thank you for making Pitmydoro better! 🙌
 
 Esta guía te ayudará a comenzar a contribuir al proyecto.
 
-*[English version above](#contributing-to-pitmydoro) / Versión en inglés arriba*
+_[English version above](#contributing-to-pitmydoro) / Versión en inglés arriba_
 
 ---
 
@@ -727,6 +751,7 @@ git push origin type/nombre-de-tu-funcionalidad
 ### Stack Tecnológico
 
 Pitmydoro está construido con:
+
 - **Next.js** - Framework de React con TypeScript
 - **Chakra UI** - Sistema de componentes
 - **Tailwind CSS** - CSS con utilidades
@@ -737,12 +762,12 @@ Pitmydoro está construido con:
 ### Requisitos Previos
 
 Antes de comenzar, asegúrate de tener:
+
 - **Node.js** 20 o superior
 - **Bun** (recomendado) o npm 10 o superior
 - **Playwright** (para pruebas)
 
 ### Pasos de Instalación
-
 
 #### 1. Haz fork y clona el repositorio:
 
@@ -775,15 +800,15 @@ La aplicación estará disponible en `http://localhost:3000`
 
 **Siempre crea ramas desde `master`** y usa el prefijo apropiado:
 
-| Prefijo | Propósito | Ejemplo |
-|---------|-----------|---------|
-| `feat/` | Nuevas funcionalidades | `feat/agregar-modo-oscuro` |
-| `fix/` | Corrección de bugs | `fix/temporizador-no-detiene` |
-| `docs/` | Documentación | `docs/actualizar-readme` |
-| `style/` | Cambios de estilo de código | `style/formatear-componentes` |
-| `refactor/` | Refactorización de código | `refactor/simplificar-store` |
-| `test/` | Pruebas (unit, integration, e2e) | `test/agregar-pruebas-timer` |
-| `chore/` | Tareas de mantenimiento | `chore/actualizar-dependencias` |
+| Prefijo     | Propósito                        | Ejemplo                         |
+| ----------- | -------------------------------- | ------------------------------- |
+| `feat/`     | Nuevas funcionalidades           | `feat/agregar-modo-oscuro`      |
+| `fix/`      | Corrección de bugs               | `fix/temporizador-no-detiene`   |
+| `docs/`     | Documentación                    | `docs/actualizar-readme`        |
+| `style/`    | Cambios de estilo de código      | `style/formatear-componentes`   |
+| `refactor/` | Refactorización de código        | `refactor/simplificar-store`    |
+| `test/`     | Pruebas (unit, integration, e2e) | `test/agregar-pruebas-timer`    |
+| `chore/`    | Tareas de mantenimiento          | `chore/actualizar-dependencias` |
 
 **Flujo de trabajo de ejemplo:**
 
@@ -810,6 +835,7 @@ git push origin type/agregar-sonido-notificacion
 Seguimos la especificación de [Conventional Commits](https://www.conventionalcommits.org/), aplicada por commitlint.
 
 **Formato:**
+
 ```
 type(scope): descripción
 
@@ -819,6 +845,7 @@ type(scope): descripción
 ```
 
 **Tipos:**
+
 - `feat` - Una nueva funcionalidad
 - `fix` - Corrección de un bug
 - `docs` - Solo cambios en documentación
@@ -837,6 +864,7 @@ La parte del código afectada (ej., `pomodoro`, `settings`, `ui`, `store`)
 **Ejemplos:**
 
 ✅ **Buenos commits:**
+
 ```bash
 git commit -m "feat(pomodoro): agregar tooltips para botones de control"
 git commit -m "fix(settings): prevenir intervalos negativos inválidos"
@@ -846,6 +874,7 @@ git commit -m "refactor(store): simplificar gestión de estado"
 ```
 
 ❌ **Malos commits:**
+
 ```bash
 git commit -m "arreglé cosas"
 git commit -m "Actualizar README.md"
@@ -866,6 +895,7 @@ Se ejecuta **automáticamente antes de cada commit**:
 3. 🔍 **Linting** - Verifica la calidad del código con ESLint
 
 **Lo que sucede:**
+
 ```bash
 # Cuando ejecutas:
 git commit -m "feat(timer): agregar funcionalidad"
@@ -895,6 +925,7 @@ Se ejecuta **automáticamente antes de subir al remoto**:
 2. 🧪 **Pruebas** - Todas las pruebas deben pasar
 
 **Lo que sucede:**
+
 ```bash
 # Cuando ejecutas:
 git push origin feat/mi-funcionalidad
@@ -988,11 +1019,13 @@ bun test
 Usa el formato de Conventional Commits:
 
 ✅ **Buenos títulos de PR:**
+
 - `feat(timer): agregar funcionalidad de pausa y reanudar`
 - `fix(settings): resolver bug de validación de intervalos`
 - `docs(contributing): mejorar instrucciones de configuración`
 
 ❌ **Malos títulos de PR:**
+
 - `Actualizar timer.tsx`
 - `Corrección de bug`
 - `Nueva funcionalidad`
@@ -1001,23 +1034,29 @@ Usa el formato de Conventional Commits:
 
 ```markdown
 ## Descripción
+
 Breve descripción de lo que hace este PR.
 
 ## ¿Qué Cambió?
+
 - Lista de cambios clave realizados
 - Incluir detalles técnicos si es relevante
 - Mencionar cualquier dependencia agregada/removida
 
 ## Capturas de Pantalla / Videos (OPCIONAL)
+
 Si aplica, agrega capturas de pantalla o grabaciones de pantalla para demostrar los cambios.
 
 ## Issues Relacionados
+
 Closes #(número de issue)
 
 ## Cambios que Rompen Funcionalidad (OPCIONAL)
+
 Si este PR incluye cambios que rompen funcionalidad, descríbelos aquí y proporciona instrucciones de migración.
 
 ## Notas Adicionales (OPCIONAL)
+
 Cualquier información adicional que los revisores deberían saber.
 ```
 
@@ -1055,6 +1094,7 @@ El PR se actualizará automáticamente con tus nuevos commits.
 ### Mejores Prácticas
 
 **Hacer:**
+
 - ✅ Escribir código limpio y legible
 - ✅ Seguir patrones de código existentes
 - ✅ Usar tipos de TypeScript apropiadamente
@@ -1064,6 +1104,7 @@ El PR se actualizará automáticamente con tus nuevos commits.
 - ✅ Actualizar documentación
 
 **No hacer:**
+
 - ❌ Commitear código comentado
 - ❌ Dejar sentencias console.log
 - ❌ Ignorar errores de TypeScript
@@ -1131,7 +1172,6 @@ const useSessionStore = create<SessionStore & SessionActions>((set) => ({
 }));
 
 export default useSessionStore;
-
 ```
 
 ---
@@ -1190,7 +1230,7 @@ import { useTranslation } from 'react-i18next';
 
 export const Timer = () => {
   const { t } = useTranslation();
-  
+
   return (
     <Button>{t('timer.start')}</Button>
   );
@@ -1208,6 +1248,7 @@ export const Timer = () => {
 5. Envía un PR con tus traducciones
 
 **Ejemplo para Francés:**
+
 - Crea `src/assets/messages/fr.json`
 - Traduce todas las claves
 - ¡Abre un PR!
@@ -1233,14 +1274,15 @@ Asegura que tus cambios sean accesibles:
   - Contraseñas
   - Tokens
   - Archivos `.env`
-  
 - 🔑 **Usa variables de entorno**:
+
   ```bash
   # .env.local (nunca commiteado)
   NEXT_PUBLIC_API_KEY=tu_clave_aqui
   ```
 
 - 🚨 **Reporta vulnerabilidades privadamente**:
+
   - Ver [SECURITY.md](SECURITY.md) para el proceso de reporte
   - NO abras issues públicos para bugs de seguridad
 
@@ -1286,18 +1328,21 @@ bun update
 # Reinicializar Husky
 npx husky init
 ```
+
 </details>
 
 <details>
 <summary><strong>Mensaje de commit rechazado</strong></summary>
 
 Tu commit debe seguir Conventional Commits:
+
 ```bash
 git commit -m "type(scope): descripción"
 
 # Ejemplo:
 git commit -m "feat(timer): agregar botón de pausa"
 ```
+
 </details>
 
 <details>
@@ -1310,6 +1355,7 @@ bun test
 # Corregir los problemas
 # Intentar commitear de nuevo
 ```
+
 </details>
 
 <details>
@@ -1322,6 +1368,7 @@ bun lint --fix
 # Para problemas restantes, corregir manualmente
 # Luego commitear de nuevo
 ```
+
 </details>
 
 ---
@@ -1329,6 +1376,7 @@ bun lint --fix
 ## Reconocimiento
 
 Los contribuyentes son reconocidos en:
+
 - 🌟 El README del proyecto
 - 📰 Notas de lanzamiento
 - 💖 ¡Nuestra eterna gratitud!

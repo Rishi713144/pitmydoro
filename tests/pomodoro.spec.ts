@@ -51,4 +51,65 @@ test.describe('Pomodoro', () => {
     );
     expect(bgSize).not.toBe('auto');
   });
+
+  test('should change timer between session type', async ({ page }) => {
+    const timer = page.getByTestId('timer-label');
+    await expect(timer).toBeVisible();
+
+    await expect(timer).toContainText('25:00');
+    await page.getByTestId('short-break-label').click();
+    await expect(timer).toContainText('05:00');
+    await page.getByTestId('long-break-label').click();
+    await expect(timer).toContainText('15:00');
+    await page.getByTestId('session-label').click();
+    await expect(timer).toContainText('25:00');
+  });
+
+  test('should change timers', async ({ page }) => {
+    const timer = page.getByTestId('timer-label');
+
+    await expect(timer).toBeVisible();
+    await expect(timer).toContainText('25:00');
+
+    await page.locator('[data-pw-id="tire-0"]').click();
+    await expect(timer).toContainText('15:00');
+
+    await page.locator('[data-pw-id="tire-1"]').click();
+    await expect(timer).toContainText('20:00');
+
+    await page.locator('[data-pw-id="tire-3"]').click();
+    await expect(timer).toContainText('30:00');
+
+    await page.locator('[data-pw-id="tire-4"]').click();
+    await expect(timer).toContainText('35:00');
+
+    await page.locator('[data-pw-id="tire-2"]').click();
+    await expect(timer).toContainText('25:00');
+  });
+
+  test('should start/pause a timer and reset works', async ({ page }) => {
+    const timer = page.getByTestId('timer-label');
+
+    await expect(timer).toBeVisible();
+    await expect(timer).toContainText('25:00');
+
+    await page.getByRole('button', { name: 'Start' }).click();
+    await page.waitForTimeout(10000);
+    await page.getByRole('button', { name: 'Pause' }).click();
+
+    await expect(timer).toContainText('24:50');
+    await expect(page.getByTestId('flag-yellow')).toBeVisible();
+
+    await page.getByTestId('reset-button').click();
+    await page.getByTestId('reset-timer-menu-item').click();
+
+    await expect(page.getByRole('dialog', { name: 'Are you sure you want to' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Accept' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible();
+    await page.getByRole('button', { name: 'Accept' }).click();
+
+    await expect(timer).toContainText('25:00');
+    await expect(page.getByTestId('flag-red')).toBeVisible();
+    await expect(page.getByTestId('flag-yellow')).not.toBeVisible();
+  });
 });
