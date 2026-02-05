@@ -4,8 +4,13 @@ import useSettingsStore from '@/stores/Settings.store';
 import { TireTypeEnum } from '@/enums/TireType.enum';
 import { SessionStatusEnum } from '@/enums/SessionStatus.enum';
 import { SCUDERIAS } from '@/constants/Scuderias';
+import { useAlert } from '@/hooks/useAlert';
+import { useTranslations } from 'use-intl';
 
 export const useSettings = () => {
+  const { toastSuccess } = useAlert();
+  const t = useTranslations('settings');
+
   const tiresSettings = useSettingsStore((state) => state.tiresSettings);
   const setTiresSettings = useSettingsStore((state) => state.setTiresSettings);
   const breaksDuration = useSettingsStore((state) => state.breaksDuration);
@@ -24,34 +29,42 @@ export const useSettings = () => {
 
   const handleSwitchSession = (value: boolean) => {
     setAutoStartSession(value);
+    toastSuccess(t('settingsSaved'));
   };
 
   const handleSwitchBreak = (value: boolean) => {
     setAutoStartBreak(value);
+    toastSuccess(t('settingsSaved'));
   };
 
   const handleSwitchNextTask = (value: boolean) => {
     setAutoStartNextTask(value);
+    toastSuccess(t('settingsSaved'));
   };
 
   const handleSwitchAutoCompleteTask = (value: boolean) => {
     setAutoCompleteTask(value);
+    toastSuccess(t('settingsSaved'));
   };
 
   const handleSwitchOrderTasks = (value: boolean) => {
     setAutoOrderTasks(value);
+    toastSuccess(t('settingsSaved'));
   };
 
   const handleBreaksInterval = (value: number) => {
     setBreaksInterval(value);
+    toastSuccess(t('settingsSaved'));
   };
 
   const handleSwitchSounds = (value: boolean) => {
     setEnableSounds(value);
+    toastSuccess(t('settingsSaved'));
   };
 
   const handleSwitchNotifications = (value: boolean) => {
     setEnableNotifications(value);
+    toastSuccess(t('settingsSaved'));
   };
 
   const handleChangeBreakDuration = (type: SessionStatusEnum, duration: number) => {
@@ -59,6 +72,8 @@ export const useSettings = () => {
       ...breaksDuration,
       [type]: duration,
     });
+
+    toastSuccess(t('settingsSaved'));
   };
 
   const handleChangeTireDuration = (tire: TireTypeEnum, duration: number) => {
@@ -69,6 +84,8 @@ export const useSettings = () => {
         duration,
       },
     });
+
+    toastSuccess(t('settingsSaved'));
   };
 
   const changeScuderia = (scuderia: Team | string) => {

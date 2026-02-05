@@ -1,16 +1,47 @@
 import { Box, Flex, NumberInput, Text, VStack } from '@chakra-ui/react';
 import { TireTypeEnum } from '@/enums/TireType.enum';
 import { SessionStatusEnum } from '@/enums/SessionStatus.enum';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSettings } from '@/hooks/useSettings';
 import { useTranslations } from 'use-intl';
 import useSettingsStore from '@/stores/Settings.store';
+import { useDebounce } from '@/hooks/useDebounce';
 
 export const Timers = () => {
   const { handleChangeBreakDuration, handleChangeTireDuration } = useSettings();
   const tiresSettings = useSettingsStore((state) => state.tiresSettings);
   const breaksDuration = useSettingsStore((state) => state.breaksDuration);
   const t = useTranslations('settings.sections.timers');
+
+  const [localTiresSettings, setLocalTiresSettings] = useState(tiresSettings);
+  const [localBreaksDuration, setLocalBreaksDuration] = useState(breaksDuration);
+
+  const debouncedTireDuration = useDebounce(handleChangeTireDuration, 1000);
+  const debouncedBreakDuration = useDebounce(handleChangeBreakDuration, 1000);
+
+  const handleTireChange = (tire: TireTypeEnum, value: number) => {
+    setLocalTiresSettings((prev) => ({
+      ...prev,
+      [tire]: { ...prev[tire], duration: value },
+    }));
+    debouncedTireDuration(tire, value);
+  };
+
+  const handleBreakChange = (status: SessionStatusEnum, value: number) => {
+    setLocalBreaksDuration((prev) => ({
+      ...prev,
+      [status]: value,
+    }));
+    debouncedBreakDuration(status, value);
+  };
+
+  useEffect(() => {
+    setLocalTiresSettings(tiresSettings);
+  }, [tiresSettings]);
+
+  useEffect(() => {
+    setLocalBreaksDuration(breaksDuration);
+  }, [breaksDuration]);
 
   const tires = [
     TireTypeEnum.SOFT,
@@ -19,6 +50,7 @@ export const Timers = () => {
     TireTypeEnum.INTERMEDIATE,
     TireTypeEnum.WET,
   ];
+
   const tiresLabel = {
     [TireTypeEnum.SOFT]: t('soft'),
     [TireTypeEnum.MEDIUM]: t('medium'),
@@ -28,7 +60,7 @@ export const Timers = () => {
   };
 
   const ICON_SIZE = 50;
-  const TOTAL_ICONS = 7; // 5 tires + 2 breaks
+  const TOTAL_ICONS = 7;
   const backgroundSize = `${ICON_SIZE * TOTAL_ICONS}px auto`;
 
   return (
@@ -58,8 +90,8 @@ export const Timers = () => {
               minW='70px'
               size={'xs'}
               min={1}
-              value={String(tiresSettings[tire].duration)}
-              onValueChange={(e) => handleChangeTireDuration(tire, Number(e.value))}
+              value={String(localTiresSettings[tire].duration)}
+              onValueChange={(e) => handleTireChange(tire, Number(e.value))}
             >
               <NumberInput.Control>
                 <NumberInput.IncrementTrigger />
@@ -78,7 +110,7 @@ export const Timers = () => {
             style={{
               backgroundImage: "url('./images/tires.webp')",
               backgroundSize,
-              backgroundPositionX: `-${ICON_SIZE * 5}px`, // 6th icon (short break)
+              backgroundPositionX: `-${ICON_SIZE * 5}px`,
               width: `${ICON_SIZE}px`,
               height: `${ICON_SIZE}px`,
             }}
@@ -89,10 +121,8 @@ export const Timers = () => {
             minW='70px'
             size={'xs'}
             min={1}
-            value={String(breaksDuration[SessionStatusEnum.SHORT_BREAK])}
-            onValueChange={(e) =>
-              handleChangeBreakDuration(SessionStatusEnum.SHORT_BREAK, Number(e.value))
-            }
+            value={String(localBreaksDuration[SessionStatusEnum.SHORT_BREAK])}
+            onValueChange={(e) => handleBreakChange(SessionStatusEnum.SHORT_BREAK, Number(e.value))}
           >
             <NumberInput.Control>
               <NumberInput.IncrementTrigger />
@@ -108,7 +138,7 @@ export const Timers = () => {
             style={{
               backgroundImage: "url('./images/tires.webp')",
               backgroundSize,
-              backgroundPositionX: `-${ICON_SIZE * 6}px`, // 7th icon (long break)
+              backgroundPositionX: `-${ICON_SIZE * 6}px`,
               width: `${ICON_SIZE}px`,
               height: `${ICON_SIZE}px`,
             }}
@@ -119,10 +149,8 @@ export const Timers = () => {
             minW='70px'
             size={'xs'}
             min={1}
-            value={String(breaksDuration[SessionStatusEnum.LONG_BREAK])}
-            onValueChange={(e) =>
-              handleChangeBreakDuration(SessionStatusEnum.LONG_BREAK, Number(e.value))
-            }
+            value={String(localBreaksDuration[SessionStatusEnum.LONG_BREAK])}
+            onValueChange={(e) => handleBreakChange(SessionStatusEnum.LONG_BREAK, Number(e.value))}
           >
             <NumberInput.Control>
               <NumberInput.IncrementTrigger />

@@ -42,6 +42,7 @@
     "scuderia": "Scuderia",
     "help": "Help & Support",
     "initialHint": "\uD83D\uDCA1 Customize your times and choose your favorite team to change the app theme.",
+    "settingsSaved": "Settings saved successfully",
     "sections": {
       "timers": {
         "title": "Timers",

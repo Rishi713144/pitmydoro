@@ -1,10 +1,11 @@
 import { SwitchInput } from '@/components/Form/SwitchInput';
 import { Box, Flex, HStack, IconButton, NumberInput, Text, VStack } from '@chakra-ui/react';
 import { LuMinus, LuPlus } from 'react-icons/lu';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSettings } from '@/hooks/useSettings';
 import { useTranslations } from 'use-intl';
 import useSettingsStore from '@/stores/Settings.store';
+import { useDebounce } from '@/hooks/useDebounce';
 
 export const Session = () => {
   const { handleBreaksInterval, handleSwitchBreak, handleSwitchSession } = useSettings();
@@ -12,6 +13,19 @@ export const Session = () => {
   const autoStartSession = useSettingsStore((state) => state.autoStartSession);
   const breaksInterval = useSettingsStore((state) => state.breaksInterval);
   const t = useTranslations('settings.sections.session');
+
+  const [localBreaksInterval, setLocalBreaksInterval] = useState(breaksInterval);
+
+  useEffect(() => {
+    setLocalBreaksInterval(breaksInterval);
+  }, [breaksInterval]);
+
+  const debouncedBreaksInterval = useDebounce(handleBreaksInterval, 1000);
+
+  const handleBreaksIntervalChange = (value: number) => {
+    setLocalBreaksInterval(value);
+    debouncedBreaksInterval(value);
+  };
 
   return (
     <VStack gap={8} marginY={'20px'}>
@@ -43,9 +57,8 @@ export const Session = () => {
 
         <NumberInput.Root
           size={'xs'}
-          defaultValue={String(breaksInterval)}
-          value={String(breaksInterval)}
-          onValueChange={(e) => handleBreaksInterval(Number(e.value))}
+          value={String(localBreaksInterval)}
+          onValueChange={(e) => handleBreaksIntervalChange(Number(e.value))}
           unstyled
           spinOnPress={false}
         >

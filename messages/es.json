@@ -42,6 +42,7 @@
     "scuderia": "Escudería",
     "help": "Ayuda y soporte",
     "initialHint": "\uD83D\uDCA1 Personaliza tus tiempos y escoge tu escudería favorita para cambiar el tema de la aplicación.",
+    "settingsSaved": "Cambios guardados exitosamente",
     "sections": {
       "timers": {
         "title": "Temporizadores",

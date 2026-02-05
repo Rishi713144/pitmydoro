@@ -10,6 +10,7 @@ export const useAlert = () => {
   const { theme } = useTheme();
   const [primaryColor] = useToken('colors', ['primary.default']);
   const [dangerColor] = useToken('colors', ['danger']);
+  const [successColor] = useToken('colors', ['success']);
   const [warningColor] = useToken('colors', ['warning']);
   const [light] = useToken('colors', ['light.0']);
   const [dark] = useToken('colors', ['dark.200']);
@@ -20,13 +21,14 @@ export const useAlert = () => {
 
   const toastSuccess = (message: string) => {
     toast.success(message, {
+      position: 'top-center',
       style: {
         padding: '16px',
-        color: theme === 'dark' ? '#39ba4b' : '#49c85d',
+        color: successColor,
         background: theme === 'dark' ? darkContrast : light,
       },
       iconTheme: {
-        primary: theme === 'dark' ? '#39ba4b' : '#49c85d',
+        primary: successColor,
         secondary: '#FFFAEE',
       },
     });
