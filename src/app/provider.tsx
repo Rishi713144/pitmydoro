@@ -44,7 +44,7 @@ export default function Provider(props: { children: React.ReactNode }) {
             },
             background: {
               light: { value: '#FFF3E2' },
-              dark: { value: '#0A0A0A' },
+              dark: { value: '#101010' },
             },
             light: {
               0: { value: '#FFFFFF' },

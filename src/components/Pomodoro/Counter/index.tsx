@@ -291,7 +291,7 @@ export const Counter = () => {
         fontWeight='semibold'
         buttonColor={darkenColor}
         spanColor={darkenColorDefault}
-        textColor={'light'}
+        textColor={theme === 'dark' ? 'dark.200' : 'light'}
         isActive={isActive}
         onClick={isActive ? handlePauseClick : handleStartClick}
         size='md'
