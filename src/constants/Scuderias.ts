@@ -7,6 +7,7 @@ export const SCUDERIAS: Team[] = [
     logoURL: '/scuderias/logos/redbull.png',
     spriteURL: '/scuderias/sprites/Redbull-Sheet.png',
     carURL: '/scuderias/cars/Redbull_car.png',
+    year: '2025',
     colors: {
       background: {
         longBreak: '#FFF9DC',
@@ -31,6 +32,7 @@ export const SCUDERIAS: Team[] = [
     logoURL: '/scuderias/logos/astonMartin.png',
     spriteURL: '/scuderias/sprites/AstonMartin-Sheet.png',
     carURL: '/scuderias/cars/AstonMartin_car.png',
+    year: '2025',
     colors: {
       background: {
         longBreak: '#E1F7EC',
@@ -55,6 +57,7 @@ export const SCUDERIAS: Team[] = [
     logoURL: '/scuderias/logos/haas.png',
     spriteURL: '/scuderias/sprites/Haas-Sheet.png',
     carURL: '/scuderias/cars/Haas_car.png',
+    year: '2025',
     colors: {
       background: {
         longBreak: '#FDF1F1',
@@ -79,6 +82,7 @@ export const SCUDERIAS: Team[] = [
     logoURL: '/scuderias/logos/williams.png',
     spriteURL: '/scuderias/sprites/Williams-Sheet.png',
     carURL: '/scuderias/cars/Williams_car.png',
+    year: '2025',
     colors: {
       background: {
         longBreak: '#E3F2FF',
@@ -103,6 +107,7 @@ export const SCUDERIAS: Team[] = [
     logoURL: '/scuderias/logos/rb.png',
     spriteURL: '/scuderias/sprites/RB-Sheet.png',
     carURL: '/scuderias/cars/RB_car.png',
+    year: '2025',
     colors: {
       background: {
         longBreak: '#E4FDE1',
@@ -127,6 +132,7 @@ export const SCUDERIAS: Team[] = [
     logoURL: '/scuderias/logos/mclaren.png',
     spriteURL: '/scuderias/sprites/Mclaren-Sheet.png',
     carURL: '/scuderias/cars/Mclaren_car.png',
+    year: '2025',
     colors: {
       background: {
         longBreak: '#DDF5EB',
@@ -151,6 +157,7 @@ export const SCUDERIAS: Team[] = [
     logoURL: '/scuderias/logos/mercedes.png',
     spriteURL: '/scuderias/sprites/Mercedes-Sheet.png',
     carURL: '/scuderias/cars/Mercedes_car.png',
+    year: '2025',
     colors: {
       background: {
         longBreak: '#D9F6F1',
@@ -175,6 +182,7 @@ export const SCUDERIAS: Team[] = [
     logoURL: '/scuderias/logos/ferrari.png',
     spriteURL: '/scuderias/sprites/Ferrari-Sheet.png',
     carURL: '/scuderias/cars/Ferrari_car.png',
+    year: '2025',
     colors: {
       background: {
         longBreak: '#E6F3FF',
@@ -194,11 +202,12 @@ export const SCUDERIAS: Team[] = [
     },
   },
   {
-    name: 'Alphine',
-    id: 'alphine',
-    logoURL: '/scuderias/logos/alphine.png',
-    spriteURL: '/scuderias/sprites/Alphine-Sheet.png',
-    carURL: '/scuderias/cars/Alphine_car.png',
+    name: 'Alpine',
+    id: 'alpine',
+    logoURL: '/scuderias/logos/alpine.png',
+    spriteURL: '/scuderias/sprites/Alpine-Sheet.png',
+    carURL: '/scuderias/cars/Alpine_car.png',
+    year: '2025',
     colors: {
       background: {
         longBreak: '#FDE6F4',
@@ -223,6 +232,7 @@ export const SCUDERIAS: Team[] = [
     logoURL: '/scuderias/logos/sauber.png',
     spriteURL: '/scuderias/sprites/Sauber-Sheet.png',
     carURL: '/scuderias/cars/Sauber_car.png',
+    year: '2025',
     colors: {
       background: {
         longBreak: '#EBFFDF',

@@ -1,9 +1,4 @@
-interface PrimaryColor {
-  default: string;
-  dark: string;
-}
-
-interface SecondaryColor {
+interface ColorValues {
   default: string;
   dark: string;
 }
@@ -14,9 +9,9 @@ interface BackgroundColor {
   longBreak: string;
 }
 
-interface TeamColors {
-  primary: PrimaryColor;
-  secondary: SecondaryColor;
+export interface TeamColors {
+  primary: ColorValues;
+  secondary: ColorValues;
   background: BackgroundColor;
   light: string;
   dark: string;
@@ -28,5 +23,6 @@ export interface Team {
   logoURL: string;
   spriteURL: string;
   carURL: string;
+  year: string;
   colors: TeamColors;
 }
