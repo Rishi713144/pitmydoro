@@ -1,8 +1,8 @@
 import React from 'react';
 import { getUserLocale } from '@/services/locale';
 import { getTranslations } from 'next-intl/server';
-import { WrapSections } from '@/components/WrapSections';
-import { MainContainer } from '@/components/MainContainer';
+import { WrapSections } from '@/components/Layout/WrapSections';
+import { MainContainer } from '@/components/Layout/MainContainer';
 import { Metadata } from 'next';
 import { keywords } from '@/constants/Keywords';
 

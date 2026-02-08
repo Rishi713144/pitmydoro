@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Countdown, { CountdownApi, zeroPad } from 'react-countdown';
 import { Box, Center, Flex, HStack, IconButton, Text, useDisclosure } from '@chakra-ui/react';
 import { GrPowerReset } from 'react-icons/gr';
-import { RippleButton } from '@/components/RippleButton';
+import { RippleButton } from '@/components/Pomodoro/components/RippleButton';
 import moment from 'moment';
 import { Settings } from '@/components/Pomodoro/Settings';
 import useSessionStore from '@/stores/Session.store';

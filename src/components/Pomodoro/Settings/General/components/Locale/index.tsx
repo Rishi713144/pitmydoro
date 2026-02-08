@@ -1,7 +1,7 @@
 'use client';
 import { Flex, Text } from '@chakra-ui/react';
 import React from 'react';
-import { LocaleSwitch } from '@/components/Toggles/LocaleSwitch';
+import { LocaleSwitch } from '@/components/Layout/Toggles/LocaleSwitch';
 import { useTranslations } from 'use-intl';
 
 export const Locale = () => {
