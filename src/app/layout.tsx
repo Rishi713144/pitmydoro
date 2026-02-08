@@ -4,7 +4,6 @@ import './globals.css';
 import { ColorModeProvider } from '@/components/ui/color-mode';
 import { NextIntlClientProvider } from 'next-intl';
 import { Toaster } from 'react-hot-toast';
-import { BottomBanner } from '@/components/BottomBanner';
 import { Metadata } from 'next';
 import Head from 'next/head';
 import { keywords } from '@/constants/Keywords';
@@ -67,7 +66,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <ColorModeProvider enableSystem={false}>
               <Toaster position='top-right' />
               {children}
-              <BottomBanner />
             </ColorModeProvider>
           </Provider>
         </NextIntlClientProvider>

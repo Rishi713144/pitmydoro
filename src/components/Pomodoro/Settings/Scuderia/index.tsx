@@ -12,7 +12,7 @@ import {
 import { Team } from '@/interfaces/Teams.interface';
 import React, { useMemo, useState } from 'react';
 import { useSettings } from '@/hooks/useSettings';
-import { ColorPreview } from '@/components/ColorPreview';
+import { ColorPreview } from '@/components/Pomodoro/components/ColorPreview';
 import { useTranslations } from 'use-intl';
 import { SCUDERIAS } from '@/constants/Scuderias';
 import usePomodoroStore from '@/stores/Pomodoro.store';

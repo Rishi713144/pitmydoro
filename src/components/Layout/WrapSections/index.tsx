@@ -1,13 +1,13 @@
 'use client';
 
 import { Center, Container, Grid, GridItem, Text } from '@chakra-ui/react';
-import { About } from '@/components/WrapSections/components/About';
+import { About } from '@/components/Layout/WrapSections/components/About';
 import React from 'react';
 import { useTranslations } from 'use-intl';
 import tinycolor from 'tinycolor2';
 import useSessionStore from '@/stores/Session.store';
 import usePomodoroStore from '@/stores/Pomodoro.store';
-import { TiDivider } from '@/components/WrapSections/components/Divider';
+import { TiDivider } from '@/components/Layout/WrapSections/components/Divider';
 import { jersey15 } from '@/assets/fonts/Jersey';
 
 export const WrapSections = () => {
