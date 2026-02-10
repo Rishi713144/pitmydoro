@@ -1,13 +1,15 @@
 import { VStack } from '@chakra-ui/react';
 import React from 'react';
 import { SwitchInput } from '@/components/Form/SwitchInput';
+import { SliderInput } from '@/components/Form/SliderInput';
 import { useTranslations } from 'use-intl';
 import { useSettings } from '@/hooks/useSettings';
 import useSettingsStore from '@/stores/Settings.store';
 
 export const Sounds = () => {
-  const { handleSwitchSounds } = useSettings();
+  const { handleSwitchSounds, handleVolumeChange } = useSettings();
   const enableSounds = useSettingsStore((state) => state.enableSounds);
+  const volume = useSettingsStore((state) => state.volume);
   const t = useTranslations('settings.sections.sounds');
 
   return (
@@ -18,6 +20,13 @@ export const Sounds = () => {
         value={enableSounds}
         defaultValue={false}
         onChange={(value: boolean) => handleSwitchSounds(value)}
+      />
+      <SliderInput
+        title={t('volume.title')}
+        description={t('volume.description')}
+        value={volume}
+        onChange={handleVolumeChange}
+        disabled={!enableSounds}
       />
     </VStack>
   );

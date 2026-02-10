@@ -39,5 +39,6 @@ export const DefaultSettings: Settings = {
   autoOrderTasks: true,
   autoStartNextTask: true,
   enableSounds: true,
+  volume: 0.5,
   enableNotifications: true,
 };
