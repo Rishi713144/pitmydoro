@@ -6,7 +6,9 @@ import { NextIntlClientProvider } from 'next-intl';
 import { Toaster } from 'react-hot-toast';
 import { Metadata } from 'next';
 import Head from 'next/head';
+import { AuthProvider } from '@/contexts/AuthContext';
 import { keywords } from '@/constants/Keywords';
+import { AuthModal } from '@/components/Auth/AuthModal';
 
 export const metadata: Metadata = {
   title: 'Pit My Doro',
@@ -61,14 +63,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </Head>
 
       <body>
-        <NextIntlClientProvider>
-          <Provider>
-            <ColorModeProvider enableSystem={false}>
-              <Toaster position='top-right' />
-              {children}
-            </ColorModeProvider>
-          </Provider>
-        </NextIntlClientProvider>
+        <AuthProvider>
+          <NextIntlClientProvider>
+            <Provider>
+              <ColorModeProvider enableSystem={false}>
+                <Toaster position='top-right' />
+                {children}
+                <AuthModal />
+              </ColorModeProvider>
+            </Provider>
+          </NextIntlClientProvider>
+        </AuthProvider>
       </body>
     </html>
   );
