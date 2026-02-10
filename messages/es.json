@@ -103,6 +103,10 @@
         "selectSound": {
           "label": "Sonido",
           "placeholder": "Selecciona un sonido"
+        },
+        "volume": {
+          "title": "Volumen",
+          "description": "Ajusta el nivel de volumen para los efectos de sonido."
         }
       },
       "notifications": {

@@ -19,5 +19,6 @@ export interface Settings {
   autoOrderTasks: boolean;
   autoStartNextTask: boolean;
   enableSounds: boolean;
+  volume: number;
   enableNotifications: boolean;
 }
