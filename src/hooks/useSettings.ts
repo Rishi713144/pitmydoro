@@ -25,6 +25,7 @@ export const useSettings = () => {
   const setBreaksInterval = useSettingsStore((state) => state.setBreaksInterval);
 
   const setEnableSounds = useSettingsStore((state) => state.setEnableSounds);
+  const setVolume = useSettingsStore((state) => state.setVolume);
   const setEnableNotifications = useSettingsStore((state) => state.setEnableNotifications);
 
   const handleSwitchSession = (value: boolean) => {
@@ -67,6 +68,10 @@ export const useSettings = () => {
     toastSuccess(t('settingsSaved'));
   };
 
+  const handleVolumeChange = (value: number) => {
+    setVolume(value);
+  };
+
   const handleChangeBreakDuration = (type: SessionStatusEnum, duration: number) => {
     setBreaksDuration({
       ...breaksDuration,
@@ -98,6 +103,7 @@ export const useSettings = () => {
 
   return {
     handleSwitchSounds,
+    handleVolumeChange,
     handleSwitchNotifications,
     handleChangeBreakDuration,
     handleBreaksInterval,

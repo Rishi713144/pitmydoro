@@ -19,6 +19,7 @@ interface SettingsActions {
   setAutoStartNextTask: (autoStartNextTask: boolean) => void;
   setIsLongBreakPerTask: (longBreakPerTask: boolean) => void;
   setEnableSounds: (enableSounds: boolean) => void;
+  setVolume: (volume: number) => void;
   setEnableNotifications: (enableNotifications: boolean) => void;
 }
 
@@ -37,8 +38,10 @@ const useSettingsStore = create<Settings & SettingsActions>()(
         autoStartNextTask: DefaultSettings.autoStartNextTask,
         isLongBreakPerTask: DefaultSettings.isLongBreakPerTask,
         enableSounds: DefaultSettings.enableSounds,
+        volume: DefaultSettings.volume,
         enableNotifications: DefaultSettings.enableNotifications,
         setEnableSounds: (enableSounds) => set(() => ({ enableSounds })),
+        setVolume: (volume) => set(() => ({ volume })),
         setEnableNotifications: (enableNotifications) => set(() => ({ enableNotifications })),
         setLocale: (locale) => set(() => ({ locale })),
         setIsLongBreakPerTask: (longBreakPerTask) =>
