@@ -3,14 +3,21 @@ import { useToken } from '@chakra-ui/react';
 import './styles.css';
 import tinycolor from 'tinycolor2';
 import { useTheme } from 'next-themes';
-import toast from 'react-hot-toast';
+import { toaster } from '@/components/ui/toaster';
 import { useTranslations } from 'use-intl';
+
+interface ToastOptions {
+  title: string;
+  description?: string;
+  duration?: number;
+  closable?: boolean;
+  type?: 'success' | 'error' | 'info' | 'warning';
+}
 
 export const useAlert = () => {
   const { theme } = useTheme();
   const [primaryColor] = useToken('colors', ['primary.default']);
   const [dangerColor] = useToken('colors', ['danger']);
-  const [successColor] = useToken('colors', ['success']);
   const [warningColor] = useToken('colors', ['warning']);
   const [light] = useToken('colors', ['light.0']);
   const [dark] = useToken('colors', ['dark.200']);
@@ -19,18 +26,51 @@ export const useAlert = () => {
 
   const darkenColor = tinycolor(primaryColor).darken(10).toString();
 
-  const toastSuccess = (message: string) => {
-    toast.success(message, {
-      position: 'top-center',
-      style: {
-        padding: '16px',
-        color: successColor,
-        background: theme === 'dark' ? darkContrast : light,
-      },
-      iconTheme: {
-        primary: successColor,
-        secondary: '#FFFAEE',
-      },
+  const createToast = ({
+    title,
+    description,
+    duration = 2000,
+    closable = false,
+    type,
+  }: ToastOptions) => {
+    toaster.create({
+      title,
+      description,
+      duration,
+      closable,
+      type,
+    });
+  };
+
+  const toastSuccess = (title: string, description?: string) => {
+    createToast({
+      title: title || t('successTitle') || 'Success',
+      description,
+      type: 'success',
+    });
+  };
+
+  const toastWarning = (title: string, description?: string) => {
+    toaster.create({
+      title: title || t('warningTitle') || 'Warning',
+      description,
+      type: 'warning',
+    });
+  };
+
+  const toastError = (title: string, description?: string) => {
+    toaster.create({
+      title: title || t('errorTitle') || 'Error',
+      description,
+      type: 'error',
+    });
+  };
+
+  const toastInfo = (title: string, description?: string) => {
+    toaster.create({
+      title: title || t('infoTitle') || 'Info',
+      description,
+      type: 'info',
     });
   };
 
@@ -67,5 +107,8 @@ export const useAlert = () => {
   return {
     confirmAlert,
     toastSuccess,
+    toastError,
+    toastInfo,
+    toastWarning,
   };
 };
