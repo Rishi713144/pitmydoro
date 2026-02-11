@@ -3,10 +3,10 @@ import React from 'react';
 import './globals.css';
 import { ColorModeProvider } from '@/components/ui/color-mode';
 import { NextIntlClientProvider } from 'next-intl';
-import { Toaster } from 'react-hot-toast';
 import { Metadata } from 'next';
 import Head from 'next/head';
 import { keywords } from '@/constants/Keywords';
+import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
   title: 'Pit My Doro',
@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <NextIntlClientProvider>
           <Provider>
             <ColorModeProvider enableSystem={false}>
-              <Toaster position='top-right' />
+              <Toaster />
               {children}
             </ColorModeProvider>
           </Provider>
