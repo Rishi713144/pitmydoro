@@ -63,8 +63,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </Head>
 
       <body>
-        <AuthProvider>
-          <NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <AuthProvider>
             <Provider>
               <ColorModeProvider enableSystem={false}>
                 <Toaster />
@@ -72,8 +72,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <AuthModal />
               </ColorModeProvider>
             </Provider>
-          </NextIntlClientProvider>
-        </AuthProvider>
+          </AuthProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

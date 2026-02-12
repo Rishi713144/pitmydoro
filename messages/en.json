@@ -1,4 +1,63 @@
 {
+  "auth": {
+    "join": "Log in",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "orMethods": "Or continue with",
+    "noAccount": "Don't have an account?",
+    "createAccount": "Create an account",
+    "haveAccount": "Already have an account?",
+    "passwordsDontMatch": "Passwords do not match",
+    "googleError": "Google authentication failed",
+    "authError": "Authentication failed",
+    "authSuccess": "Authentication successful",
+    "registerComplete": {
+      "title": "Account created!",
+      "description": "Check your email to verify your account"
+    },
+    "firebaseErrors": {
+      "emailAlreadyInUse": "Email already in use",
+      "invalidEmail": "Invalid email address",
+      "weakPassword": "Password is too weak",
+      "userNotFound": "No user found with this email",
+      "wrongPassword": "Incorrect password",
+      "invalidCredentials": "Invalid credentials"
+    },
+    "passwordStrength": {
+      "minLength": "Minimum 6 characters",
+      "hasUpperCase": "At least one uppercase letter",
+      "hasNumber": "At least one number",
+      "hasSpecialChar": "At least one special character",
+      "level": {
+        "weak": "Very Weak",
+        "fair": "Weak",
+        "good": "Good",
+        "strong": "Very Good"
+      }
+    },
+    "fields": {
+      "username": {
+        "label": "Username",
+        "placeholder": "Enter your username",
+        "required": "Username is required"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email address",
+        "required": "Email is required"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter your password",
+        "required": "Password is required"
+      },
+      "confirmPassword": {
+        "label": "Confirm Password",
+        "placeholder": "Re-enter your password",
+        "required": "Confirm password is required"
+      }
+    }
+  },
   "pomodoro": {
     "resetTimer": "Reset Timer",
     "acceptResetAll": "Are you sure you want to reset all?",

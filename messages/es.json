@@ -1,4 +1,64 @@
 {
+  "auth": {
+    "join": "Ingresar",
+    "signIn": "Iniciar Sesión",
+    "signUp": "Registrarse",
+    "orMethods": "O continuar con",
+    "noAccount": "¿No tienes una cuenta?",
+    "createAccount": "Crear una cuenta",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "passwordsDontMatch": "Las contraseñas no coinciden",
+    "googleSignInError": "Error al iniciar sesión con Google",
+    "googleSignUpError": "Error al registrarse con Google",
+    "authError": "Error de autenticación",
+    "authSuccess": "Autenticación exitosa",
+    "registerComplete": {
+      "title": "¡Cuenta creada!",
+      "description": "Revisa tu email para verificar"
+    },
+    "firebaseErrors": {
+      "emailAlreadyInUse": "Este email ya está registrado",
+      "invalidEmail": "Email inválido",
+      "weakPassword": "La contraseña debe tener al menos 6 caracteres",
+      "userNotFound": "Usuario no encontrado",
+      "wrongPassword": "Contraseña incorrecta",
+      "invalidCredentials": "Credenciales inválidas"
+    },
+    "passwordStrength": {
+      "minLength": "Mínimo 6 caracteres requeridos",
+      "hasUpperCase": "Debe incluir al menos una letra mayúscula",
+      "hasNumber": "Debe incluir al menos un número",
+      "hasSpecialChar": "Debe incluir al menos un caracter especial",
+      "level": {
+        "weak": "Muy débil",
+        "fair": "Débil",
+        "good": "Buena",
+        "strong": "Fuerte"
+      }
+    },
+    "fields": {
+      "username": {
+        "label": "Nombre de usuario",
+        "placeholder": "Ingresa tu nombre de usuario",
+        "required": "El nombre de usuario es obligatorio"
+      },
+      "email": {
+        "label": "Correo electrónico",
+        "placeholder": "Ingresa tu correo electrónico",
+        "required": "El correo electrónico es obligatorio"
+      },
+      "password": {
+        "label": "Contraseña",
+        "placeholder": "Ingresa tu contraseña",
+        "required": "La contraseña es obligatoria"
+      },
+      "confirmPassword": {
+        "label": "Confirmar Contraseña",
+        "placeholder": "Vuelve a ingresar tu contraseña",
+        "required": "La confirmación de contraseña es obligatoria"
+      }
+    }
+  },
   "pomodoro": {
     "resetTimer": "Reiniciar tiempo",
     "resetAll": "Reiniciar todo",
@@ -293,7 +353,6 @@
       }
     }
   },
-
   "legal": {
     "agreement": "ACUERDO",
     "title": "Aviso Legal",
