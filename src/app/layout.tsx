@@ -5,7 +5,9 @@ import { ColorModeProvider } from '@/components/ui/color-mode';
 import { NextIntlClientProvider } from 'next-intl';
 import { Metadata } from 'next';
 import Head from 'next/head';
+import { AuthProvider } from '@/contexts/AuthContext';
 import { keywords } from '@/constants/Keywords';
+import { AuthModal } from '@/components/Auth/AuthModal';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
@@ -62,12 +64,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       <body>
         <NextIntlClientProvider>
-          <Provider>
-            <ColorModeProvider enableSystem={false}>
-              <Toaster />
-              {children}
-            </ColorModeProvider>
-          </Provider>
+          <AuthProvider>
+            <Provider>
+              <ColorModeProvider enableSystem={false}>
+                <Toaster />
+                {children}
+                <AuthModal />
+              </ColorModeProvider>
+            </Provider>
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>
